@@ -1,3 +1,3 @@
-![image](https://github.com/Modraxis/Overpowered-Speedster-mod/assets/117416934/33af35dc-dea6-4453-b4b2-f54954932ed7)
+![image](https://raw.githubusercontent.com/Modraxis/background/main/Starblast%20logo.png)https://raw.githubusercontent.com/Modraxis/background/main/Starblast%20logo.png)
 # Overpowered-Speedster-mod
 Overpowered Speedster mod of ACW By Basit#8259
