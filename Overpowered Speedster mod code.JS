@@ -1,7 +1,29 @@
 Mod_Name =
     "Overpowered Speedster";
 
-Subspace_allow = true;
+
+
+
+
+
+
+
+
+
+const GAME_OPTIONS = {
+    Timer_of_match: 30,     // Put Time in minutes
+    Subspace_allow: false,  //Put true if you want subspace users else put false
+    required_players: 2,    //Required players before start
+    waiting_time: 10,       //Waiting time before start
+    NumberTeams: 0          //Number teams in game
+};
+
+
+
+
+
+
+
 
 
 
@@ -10,7 +32,6 @@ Subspace_allow = true;
 
 
 var ship = [];
-
 const A_101 = '{"name":"A","designer":"Basit","level":1,"model":1,"size":1.5,"specs":{"shield":{"capacity":[1000,1000],"reload":[5000,5000]},"generator":{"capacity":[0.01,0.01],"reload":[0.001,0.001]},"ship":{"mass":10,"speed":[350,350],"rotation":[500,500],"acceleration":[350,350]}},"bodies":{"A_1":{"section_segments":[45,135,225,315],"offset":{"x":0.1,"y":0,"z":0},"position":{"x":[10,10,0,0],"y":[-16,-16,0,0],"z":[0,0,0,0]},"width":[0,3.4,3.4,0],"height":[0,10,10,0],"texture":[49],"angle":180},"A_2":{"section_segments":[45,135,225,315],"offset":{"x":0,"y":0,"z":0},"position":{"x":[0,0,0,0,0],"y":[-16,-16,-12.60000001,-12.60000001],"z":[0,0,0,0,0]},"width":[0,7.2,4,0],"height":[0,10,10,10],"texture":[49],"angle":180}},"typespec":{"name":"A","level":1,"model":1,"code":101,"specs":{"shield":{"capacity":[1000,1000],"reload":[5000,5000]},"generator":{"capacity":[0.01,0.01],"reload":[0.001,0.001]},"ship":{"mass":10,"speed":[350,350],"rotation":[500,500],"acceleration":[350,350]}},"shape":[0,0,0,0,0,0,0,0,0,0,0,0,0.001,0.075,0.083,0.096,0.12,0.156,0.226,0.442,0.606,0.568,0.53,0.504,0.488,0.481,0.488,0.504,0.53,0.568,0.606,0.442,0.226,0.156,0.12,0.096,0.083,0.072,0.075,0,0,0,0,0,0,0,0,0,0,0],"lasers":[],"radius":0.606}}';
 const Spectator_191 = '{"name":"Spectator","level":1.9,"model":1,"size":0.025,"zoom":0.075,"specs":{"shield":{"capacity":[1e-30,1e-30],"reload":[1000,1000]},"generator":{"capacity":[1e-30,1e-30],"reload":[1,1]},"ship":{"mass":1,"speed":[200,200],"rotation":[1000,1000],"acceleration":[1000,1000]}},"bodies":{"face":{"section_segments":100,"angle":0,"offset":{"x":0,"y":0,"z":0},"position":{"x":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"y":[-2,-2,2,2],"z":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"width":[0,1,1,0],"height":[0,1,1,0],"vertical":true,"texture":[6]}},"typespec":{"name":"Spectator","level":1,"model":1,"code":101,"specs":{"shield":{"capacity":[1e-30,1e-30],"reload":[1000,1000]},"generator":{"capacity":[1e-30,1e-30],"reload":[1,1]},"ship":{"mass":1,"speed":[200,200],"rotation":[1000,1000],"acceleration":[1000,1000]}},"shape":[0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001],"lasers":[],"radius":0.001}}';
 const Spectator_192 = '{"name":"Spectator","level":1.9,"model":2,"size":0.025,"zoom":0.075,"specs":{"shield":{"capacity":[1e-30,1e-30],"reload":[1000,1000]},"generator":{"capacity":[1e-30,1e-30],"reload":[1,1]},"ship":{"mass":1,"speed":[600,600],"rotation":[1000,1000],"acceleration":[1000,1000]}},"bodies":{"face":{"section_segments":100,"angle":0,"offset":{"x":0,"y":0,"z":0},"position":{"x":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"y":[-2,-2,2,2],"z":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"width":[0,1,1,0],"height":[0,1,1,0],"vertical":true,"texture":[6]}},"typespec":{"name":"Spectator","level":1.9,"model":2,"code":192,"specs":{"shield":{"capacity":[1e-30,1e-30],"reload":[1000,1000]},"generator":{"capacity":[1e-30,1e-30],"reload":[1,1]},"ship":{"mass":1,"speed":[600,600],"rotation":[1000,1000],"acceleration":[1000,1000]}},"shape":[0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001],"lasers":[],"radius":0.001}}';
@@ -74,66 +95,66 @@ const vocabulary = [
 ];
 
 const map =
-    "99999999999999999999999999999  99999999999999999999999999999\n" +
-    "9       9     9    9     9        9     9    9     9       9\n" +
-    "9                                                          9\n" +
-    "99                                                        99\n" +
-    "9       9                                          9       9\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "99                                                        99\n" +
-    "9                                                          9\n" +
-    "99                        9      9                        99\n" +
-    "9     9       9    9                    9    9       9     9\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "99                                                        99\n" +
-    "9                                                          9\n" +
-    "99                  9                  9                  99\n" +
-    "9                                                          9\n" +
-    "9    9                                                9    9\n" +
-    "9                          9    9                          9\n" +
-    "99          9                                  9          99\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "99                 9                    9                 99\n" +
-    "9      9                                            9      9\n" +
-    "99                                                        99\n" +
-    "9                                                          9\n" +
-    "9            9                                9            9\n" +
-    "9                 9                      9                 9\n" +
+    "                                                            \n" +
+    "          5                                      5          \n" +
+    "                                                            \n" +
+    "                    5     5      5     5                    \n" +
+    "                                                            \n" +
+    " 5                                                        5 \n" +
+    "                         5        5                         \n" +
+    "      5      5                                5      5      \n" +
     "                                                            \n" +
     "                                                            \n" +
-    "9                 9                      9                 9\n" +
-    "9            9                                9            9\n" +
-    "9                                                          9\n" +
-    "99                                                        99\n" +
-    "9      9                                            9      9\n" +
-    "99                 9                    9                 99\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "99          9                                  9          99\n" +
-    "9                          9    9                          9\n" +
-    "9    9                                                9    9\n" +
-    "9                                                          9\n" +
-    "99                  9                  9                  99\n" +
-    "9                                                          9\n" +
-    "99                                                        99\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "9     9       9    9                    9    9       9     9\n" +
-    "99                        9      9                        99\n" +
-    "9                                                          9\n" +
-    "99                                                        99\n" +
-    "9                                                          9\n" +
-    "9                                                          9\n" +
-    "9       9                                          9       9\n" +
-    "99                                                        99\n" +
-    "9                                                          9\n" +
-    "9       9     9    9     9        9     9    9     9       9\n" +
-    "99999999999999999999999999999  99999999999999999999999999999";
+    "                       5            5                       \n" +
+    "     5                                                5     \n" +
+    "   5                                                    5   \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "            5       5                  5       5            \n" +
+    "                           5    5                           \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    " 5                                                        5 \n" +
+    "                       5            5                       \n" +
+    "           5                                    5           \n" +
+    "                                                            \n" +
+    "                5                          5                \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "    5             5                      5             5    \n" +
+    "           5                                    5           \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "           5                                    5           \n" +
+    "    5             5                      5             5    \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "                5                          5                \n" +
+    "                                                            \n" +
+    "           5                                    5           \n" +
+    "                       5            5                       \n" +
+    " 5                                                        5 \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "                           5    5                           \n" +
+    "            5       5                  5       5            \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "   5                                                    5   \n" +
+    "     5                                                5     \n" +
+    "                       5            5                       \n" +
+    "                                                            \n" +
+    "                                                            \n" +
+    "      5      5                                5      5      \n" +
+    "                         5        5                         \n" +
+    " 5                                                        5 \n" +
+    "                                                            \n" +
+    "                    5     5      5     5                    \n" +
+    "                                                            \n" +
+    "          5                                      5          \n" +
+    "                                                            ";
 
 onStart();
 const music = ["civilisation.mp3", "procedurality.mp3", "argon.mp3", "crystals.mp3", "red_mist.mp3", "warp_drive.mp3"];
@@ -147,37 +168,64 @@ this.options = {
     ships: ship,
     max_level: 1,
     custom_map: map,
-    friendly_colors: 0,
+    friendly_colors: GAME_OPTIONS.NumberTeams,
     weapons_store: false,
-    max_players: 120,
+    max_players: 60,
     soundtrack: music[~~(Math.random() * music.length)],
     lives: 5,
     starting_ship: 808,
     starting_ship_maxed: true,
+    asteroids_strength: 100000,
 };
 
 const OPspeedsters = [601, 602, 603, 604, 605];
 const Spectators = [191, 192];
+
+const RESOURCES = {
+   /*obj*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ACWaccess: "Λᴄᗯ | ☆", message: `Tag error: ACW tag has been changed put ACW tag again\n    Here is the ACW tag: `,
+    planeOBJ: "https://starblast.data.neuronality.com/mods/objects/plane.obj"
+};
+const ACWtag = "Λᴄᗯ | ☆";
+const DEBUG = true;
 const ACWsFunctions = {
     toHSLA: function (hue = 0, alpha = 1, saturation = 100, lightness = 50) {
         return `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-    },
-    spectate: function (ship) {
-        if (!ship.custom.Spectatee) {
+    }, Subspace_checker: function () {
+        if (GAME_OPTIONS.Subspace_allow) {
+            if (!ship.custom.cheater) {
+                ship.custom.cheater = true;
+                game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
+                game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n  [[bg;#ff0000;]${ship.name} has not been kicked because you allow Subspace.]`);
+            }
+        }
+        else {
+            ship.custom.cheater = true;
+            ship.gameover({ "You have been caught": "using Subspace" });
+            game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
+            game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n  [[bg;#ff0000;]${ship.name} has been kicked because you do not allow Subspace.]`);
+        }
+
+    }, spectate: function (ship) {
+        if (!ship.custom.Spectate) {
+            ship.setUIComponent({
+                id: "Speedsters",
+                visible: false
+            });
+            ship.custom.Spectatecolor = true;
             if (!ship.custom.Spectatetype) {
                 ship.custom.last_ship = ship.type;
                 ship.set({ type: 191, crystals: 0, collider: false, vx: 0, vy: 0 });
                 ship.custom.Spectatetype = true;
-                ship.setUIComponent({ id: "Speedsters", visible: false });
             } else if (ship.custom.Spectatetype) {
                 ship.set({ type: 192, crystals: 0, collider: false, vx: 0, vy: 0 });
                 ship.custom.Spectatetype = false;
-                ship.custom.Spectatee = true;
+                ship.custom.Spectate = true;
             }
         } else {
             ship.setUIComponent(ACWsUIs.Speedsters);
-            ship.custom.Spectatee = false;
+            ship.custom.Spectate = false;
             ship.custom.Spectatetype = false;
+            ship.custom.Spectatecolor = false;
             ship.set({
                 type: ship.custom.last_ship,
                 shield: 500,
@@ -189,9 +237,8 @@ const ACWsFunctions = {
                 vy: 0
             });
         }
-    },
-    speedsters: function (ship) {
-        if (ship.custom.Spectatee === false) {
+    }, speedsters: function (ship) {
+        if (ship.custom.Spectate === false) {
             ship.set({
                 type: OPspeedsters[OPspeedsters.indexOf(ship.type) + 1] || OPspeedsters[0],
                 generator: 0,
@@ -199,46 +246,50 @@ const ACWsFunctions = {
                 stats: 88888888
             });
         }
-    },
-    updateScoreboard: function (game) {
-        let ACWtag = "Λᴄᗯ | ☆";
+    }, updateScoreboard: function (game) {
         let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
         for (let ship of game.ships) {
-            if (["Basit", ACWtag].includes(ship.name)) {
-                ship.custom.C_color = ACWsFunctions.toHSLA(60, 1, 100, this.colorTextLightness);
-                ship.custom.F_color = ACWsFunctions.toHSLA(60, 0.20, 100, this.colorTextLightness);
+            if (ship.name.startsWith(ACWtag)) {
+                if (ship.id === sorted_ships_KDratio[0].id && ship.custom.Kills >= 1) {
+                    ship.custom.C_color = ACWsFunctions.toHSLA(60, 1, 100, this.colorTextLightness);
+                    ship.custom.F_color = ACWsFunctions.toHSLA(60, 0.20, 100, this.colorTextLightness);
+                } else if (ship.custom.Spectatecolor) {
+                    ship.custom.C_color = ACWsFunctions.toHSLA(60, 0.20, 100, this.colorTextLightness);
+                    ship.custom.F_color = ACWsFunctions.toHSLA(60, 0.20, 100, this.colorTextLightness);
+                } else {
+                    ship.custom.C_color = ACWsFunctions.toHSLA(60, 0.80, 100, this.colorTextLightness);
+                    ship.custom.F_color = ACWsFunctions.toHSLA(60, 0.20, 100, this.colorTextLightness);
+                }
             } else {
                 if (ship.id === sorted_ships_KDratio[0].id && ship.custom.Kills >= 1) {
-                    ship.custom.C_color = ACWsFunctions.toHSLA(200, 1, 100, this.colorTextLightness);
-                    ship.custom.F_color = ACWsFunctions.toHSLA(200, 0.20, 100, this.colorTextLightness);
+                    ship.custom.C_color = "#C0B1FF";
+                    ship.custom.F_color = "rgba(192, 177, 255, 0.20)";
+                } else if (ship.custom.Spectatecolor) {
+                    ship.custom.C_color = "rgba(255, 255, 255, 0.20)";
+                    ship.custom.F_color = "rgba(255, 255, 255, 0.20)";
+                } else {
+                    ship.custom.C_color = "#FFFFFF";
+                    ship.custom.F_color = "rgba(255, 255, 255, 0.20)";
                 }
-                else {
-                    ship.custom.C_color = ACWsFunctions.toHSLA(0, 1, 100, this.colorTextLightness);
-                    ship.custom.F_color = ACWsFunctions.toHSLA(0, 0.20, 100, this.colorTextLightness);
-                }
-                if (ship.custom.Spectatee) {
-                    ship.custom.C_color = "#4B4100";
-                    ship.custom.F_color = "rgba(75, 65, 0, 0.20)";
-                }
-
             }
         }
         let columnHeight = 100 / 11;
         let textHeight = columnHeight / 1.2;
         let offsetY = (columnHeight - textHeight) / 2;
-
         let Scoreboard = {
             id: "scoreboard",
             clickable: false,
             visible: true,
             components: [
                 { type: "box", position: [0, 0, 100, 100], fill: "#000000" },
-                { type: "box", position: [0, 0, 100, 100 / 11], fill: "rgba(200, 200, 255, 0.20)" },
+                { type: "box", position: [0, 0, 100, 100 / 11], fill: "rgba(255, 255, 255, 0.20)" },
 
-                { type: "text", position: [2, offsetY, 100, textHeight], color: "#ffffff", value: "Players", align: "left" },
+                { type: "text", position: [2, offsetY, 100, textHeight], color: "#ffffff", value: "Players:", align: "left" },
                 { type: "text", position: [-8.5, offsetY + 0.5, 100, textHeight], color: "#FF0000", value: "K", align: "right" },
                 { type: "text", position: [-5.9, offsetY + 0.5, 100, textHeight], color: "#FFFFFF", value: "/", align: "right" },
                 { type: "text", position: [-1.5, offsetY + 0.5, 100, textHeight], color: "lime", value: "D", align: "right" },
+
+                { type: "text", position: [30, offsetY, 100, textHeight], color: "#ffffff", value: game.ships.length, align: "left" },
 
                 ...(sorted_ships_KDratio).map((ship, i) => {
                     let playernamepos = [0, offsetY + columnHeight * (i + 1), 100, textHeight];
@@ -265,6 +316,54 @@ const ACWsFunctions = {
             ship.setUIComponent(Scoreboard);
             Scoreboard.components = components;
         }
+    }, toTimer: function () {
+        let timerr = GAME_OPTIONS.Timer_of_match * 60
+        let seconds = ACWsFunctions.timeLeft(game.custom.startedStep + timerr * 60);
+        let minutes = Math.trunc(seconds / 60);
+        seconds -= minutes * 60;
+        if (minutes < 60) return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        let hours = Math.trunc(minutes / 60);
+        minutes -= hours * 60;
+        return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    }, timeLeft: function (timestamp) {
+        return Math.max(Math.ceil((timestamp - game.step) / 60), 0);
+    }, sendWaitingText: function (ship) {
+        ship.setUIComponent({
+            id: "waiting_text",
+            position: [40, 20, 20, 10],
+            components: [
+                { type: "text", position: [0, 0, 100, 50], value: "Waiting for more players...", color: "#cde" },
+                { type: "text", position: [0, 50, 100, 50], value: String(game.custom.waiting_text).toString() + "s wait", color: "#cde" }
+            ]
+        });
+    }, timeExceeded: function (timestamp, timerr) {
+        return game.step > (timerr + timestamp);
+    }, getObjectID: function (id) {
+        return "__ABILITY_MANAGER_" + String(id) + "__"
+    }, setObject: function (specs) {
+        specs = { ...specs };
+        specs.id = this.getObjectID(specs.id);
+        if (specs.type != null) specs.type.id = this.getObjectID(specs.type.id);
+        game.setObject(specs);
+    }, setPlaneOBJ: function (options) {
+        options = options || {};
+        this.setObject({
+            ...options,
+            position: {
+                ...options.position,
+                z: -3
+            },
+            scale: {
+                ...options.scale,
+                z: 0
+            },
+            type: {
+                ...(options.type || {}),
+                obj: RESOURCES.planeOBJ
+            }
+        })
+    }, clone: function (obj) {
+        return JSON.parse(JSON.stringify(obj));
     }
 };
 
@@ -276,57 +375,49 @@ const ACWsUIs = {
         visible: true,
         shortcut: "3",
         components: [
-            {
-                type: "box", position: [0, 0, 100, 100], fill: "rgba(40, 40, 215, 0.40)", stroke: "#2828D7", width: 5
-            },
-            {
-                type: "text", position: [0, 20, 100, 60], value: "Spectate [3]", color: "#ffffff"
-            }
+            { type: "box", position: [0, 0, 100, 100], fill: "rgba(40, 40, 215, 0.40)", stroke: "#2828D7", width: 5 },
+            { type: "text", position: [0, 20, 100, 60], value: "Spectate [3]", color: "#ffffff" }
         ]
-    },
-    removeSpectate: {
-        id: "Spectate",
-        position: [72.2, 4.8, 7.6, 4],
-        visible: false,
-        components: []
-    },
-    Speedsters: {
+    }, Speedsters: {
         id: "Speedsters",
-        position: [5, 6, 9, 5],
+        position: [5, 6.3, 10, 6],
         clickable: true,
         visible: true,
         shortcut: "V",
         components: [
-            {
-                type: "text", position: [0, 0, 100, 100], value: "Speedsters [V]", color: "#FFFFFF"
-            }
+            { type: "text", position: [-0.25, 0, 100, 100], value: "Speedsters [V]", color: "#cde" }
         ]
-    },
-    buy_lives_blocker: {
+    }, score_block: {
+        id: "score_block",
+        position: [4, 2, 12, 6],
+        visible: true,
+        components: [
+            { type: "box", position: [-0.25, -0.25, 100, 100], fill: "#0A2947", stroke: "#0083FF", width: 4 },
+            { type: "text", position: [6, -8, 85, 75], value: "Overpowered", color: "#0083FF" },
+            { type: "text", position: [15, 35, 70, 60], value: " Speedster ", color: "#0083FF" }
+        ]
+    }, buy_lives_blocker: {
         id: "buy_lives_blocker",
         position: [65, 0, 10, 10],
         clickable: true,
         visible: true,
         shortcut: String.fromCharCode(187),
         components: []
-    },
-    steam_exit_block: {
+    }, steam_exit_block: {
         id: "steam_exit_block",
         position: [0, 95, 20, 5],
         clickable: true,
-    },
-    scoreboard: {
+    }, scoreboard: {
         id: "scoreboard",
         visible: true,
         components: [
             { type: "box", position: [0, 0, 100, 100], fill: "#000000" },
-            { type: "text", position: [0, 10, 100, 100 / 11], value: "Loading.....", color: "#FFFFFF", align: "center" }
+            { type: "text", position: [5, 5, 90, 100 / 10], value: "Waiting for more players...", color: "#cde" },
         ]
-    },
+    }
 };
-this.tick = function (game) {
-    if (game.step % 50 === 0) {
-        ACWsFunctions.updateScoreboard(game);
+const mainTicks = function (game) {
+    if (game.step % 10 === 0) {
         for (let i = 0; i < game.ships.length; i++) {
             var ship = game.ships[i];
             var ship_level = Math.trunc(ship.type / 100);
@@ -334,59 +425,220 @@ this.tick = function (game) {
             if (ship.stats < stats) ship.set({ stats: stats });
         }
         for (let ship of game.ships) {
-            if (!ship.custom.init) {
-                ship.custom.init = true;
+            if (!ship.custom.join) {
+                ship.custom.join = true;
                 ship.custom.Deaths = 0;
                 ship.custom.Kills = 0;
-                ship.custom.Spectatee = false;
-                ship.custom.Spectatetype = false;
-                ship_instructor(ship, `Hi!\nWelcome to \n ACW's ${Mod_Name} mod`, "Zoltar");
-                ship_instructor(ship, "GET SOME TIPS!\nPress [V] to change your look of Speedster \n Important note:", "Zoltar", 5);
-                ship_instructor(ship, "All the Speedster are equal But there looks are changed", "Zoltar", 5);
-                ship_instructor(ship, " Enjoy the mod\nThankyou!", "Zoltar", 10, 5);
-                ship.setUIComponent(ACWsUIs.Speedsters);
+                ship.custom.init = true;
+                ship.custom.cheater = false;
+                ship.setUIComponent(ACWsUIs.scoreboard);
                 ship.setUIComponent(ACWsUIs.buy_lives_blocker);
                 ship.setUIComponent(ACWsUIs.steam_exit_block);
-                ship.setUIComponent(ACWsUIs.scoreboard);
+                ship.setUIComponent(ACWsUIs.score_block);
+                ship.setUIComponent(ACWsUIs.Speedsters);
+                ship.custom.Instructor = true;
+                if (ship.custom.Instructor) {
+                    ship_instructor(ship, `Hi!\nWelcome to \n ACW's Overpowered Speedster mod\nGET SOME TIPS!\nPress [V] to change your look of Speedster \n Important note:\nAll the Speedster are equal But there looks are changed\nEnjoy the mod`, "Zoltar", 2, 10);
+                    ship.custom.Instructor = false;
+                    timeout = 720;
+                    setTimeout(() => {
+                        ship.hideInstructor();
+                    }, timeout);
+                }
             }
         }
     }
-    if (game.step % 500 === 0) playerList();
 };
+const initialization = function (game, dontChangeTick = false) {
+    var MapName = {
+        id: "MapName",
+        emissive: "https://raw.githubusercontent.com/Modraxis/background/main/overpowered%20speedster.png",
+    };
+    ACWsFunctions.setPlaneOBJ({
+        id: "MapName",
+        type: MapName,
+        position: { x: 0, y: 10 },
+        scale: { x: 50, y: 30, z: 40 },
+        rotation: { x: Math.PI, y: 0, z: 0 }
+    });
+    if (!dontChangeTick) {
+        this.tick = waiting;
+        this.tick(game);
+    }
+}
+if (ACWtag != RESOURCES.ACWaccess) {
+    this.tick = null;
+    game.modding.terminal.echo(`[[;#FF7733;]${RESOURCES.message}][[b;#33B4FF;]${RESOURCES.ACWaccess}]`);
+} else this.tick = initialization;
 
+
+const waiting = function (game) {
+    mainTicks(game);
+    let players = game.ships.filter(ship => ship && ship.id != null);
+    let text = "";
+    if (players.length >= GAME_OPTIONS.required_players) {
+        if (game.custom.waiting_time == null || isNaN(game.custom.waiting_time)) game.custom.waiting_time = game.step + GAME_OPTIONS.waiting_time * 60;
+        if (game.step > game.custom.waiting_time) {
+            players.forEach(ship => {
+                ship.custom.join = false;
+                ship.setUIComponent(ACWsUIs.buy_lives_blocker);
+                ship.setUIComponent(ACWsUIs.steam_exit_block);
+                ship.setUIComponent(ACWsUIs.score_block);
+                ship.setUIComponent({
+                    id: "waiting_text",
+                    visible: false
+                });
+                let xx = (Math.random() - .5) * ship.game.options.map_size * 10;
+                let yy = (Math.random() - .5) * ship.game.options.map_size * 10;
+                ship.set({
+                    idle: false,
+                    collider: true,
+                    invulnerable: 300,
+                    shield: 999,
+                    crystals: 720,
+                    stats: 66666666,
+                    x: xx,
+                    y: yy,
+                });
+            });
+            if (game.custom.startedStep == null) game.custom.startedStep = game.step + 1;
+            return this.tick = main_function;
+        } else text = ACWsFunctions.timeLeft(game.custom.waiting_time);
+    } else {
+        game.custom.waiting_time = null;
+        text = `${players.length}/${GAME_OPTIONS.required_players} players required`;
+        players.forEach(ship => {
+            ship.custom.join = true;
+            ship.setUIComponent(ACWsUIs.scoreboard);
+            ship.setUIComponent(ACWsUIs.buy_lives_blocker);
+            ship.setUIComponent(ACWsUIs.steam_exit_block);
+            ship.setUIComponent(ACWsUIs.score_block);
+            ship.setUIComponent({
+                id: "Speedsters",
+                visible: false
+            });
+            ship.set({ idle: true, collider: false, x: 0, y: 10, vx: 0, vy: 0 });
+        });
+    } if (text != game.custom.waiting_text) {
+        game.custom.waiting_text = text;
+        players.forEach(ship => {
+            ship.custom.join = true;
+            ship.setUIComponent(ACWsUIs.buy_lives_blocker);
+            ship.setUIComponent(ACWsUIs.steam_exit_block);
+            ship.setUIComponent(ACWsUIs.score_block);
+            ship.setUIComponent(ACWsUIs.scoreboard);
+            ship.setUIComponent({
+                id: "Speedsters",
+                visible: false
+            });
+            ship.set({ idle: true, collider: false, x: 0, y: 10, vx: 0, vy: 0 });
+        });
+        ACWsFunctions.sendWaitingText(game);
+    }
+}
+const main_function = function (game) {
+    mainTicks(game);
+    if ((game.step - game.custom.startedStep) % 60 === 0) {
+        for (let ship of game.ships) {
+            ship.set({ score: 0 });
+            if (ship.custom.join) {
+                ACWsFunctions.updateScoreboard(game);
+            }
+            ship.setUIComponent({
+                id: "timer",
+                position: [40, 2, 20, 4],
+                components: [
+                    { type: "text", position: [0, 0, 100, 100], value: ACWsFunctions.toTimer(), color: "#cde", align: "center" }
+                ]
+            });
+        }
+        let timerr = GAME_OPTIONS.Timer_of_match * 60
+        game.custom.timeout = ACWsFunctions.timeExceeded(game.custom.startedStep, timerr * 60);
+        if (game.custom.timeout) this.tick = endFunction;
+
+    } if (game.step % 500 === 0) {
+        playerList();
+    }
+}
+
+const endFunction = function (game) {
+    mainTicks(game);
+    let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
+    for (let ship of game.ships) {
+        ship.setUIComponent({
+            id: "endgame_notification",
+            position: [25, 10, 50, 10],
+            visible: true,
+            components: [
+                { type: "text", position: [0, 0, 100, 50], value: "Times up!", color: "#cde", align: "center" },
+                { type: "text", position: [0, 50, 100, 50], value: `${sorted_ships_KDratio[0].name} is the Winner`, color: "#cde", align: "center" },
+            ]
+        });
+        ship.setUIComponent({
+            id: "timer",
+            position: [40, 2, 20, 4],
+            visible: true,
+            components: [
+                { type: "text", position: [0, 0, 100, 100], value: "-- --", color: "#FF0000", align: "center" },
+                { type: "text", position: [0, 0, 100, 100], value: "  :  ", color: "#cde", align: "center" }
+            ]
+        });
+        ship.setUIComponent({
+            id: "Speedsters",
+            visible: false
+        });
+        ship.set({ collider: false });
+        ship.custom.endFunctionTick = game.step;
+    }
+    game.custom.endFunctionInfo = {
+        "Winner of the match": " ",
+        "- Winner Kills": 0,
+        "- Winner Deaths": 0,
+        " ": " ",
+        "Your kills": 0,
+        "Your deaths": 0
+    };
+    this.tick = gameoverFunction;
+}
+const gameoverFunction = function (game) {
+    mainTicks(game);
+    for (let ship of game.ships) {
+        if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 4 * 60)) {
+            ship.setUIComponent({
+                id: "endgame_notification",
+                visible: false
+            });
+        } if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 5 * 60)) {
+            let endInfo = ACWsFunctions.clone(game.custom.endFunctionInfo);
+            let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
+            endInfo["Winner of the match"] = sorted_ships_KDratio[0].name;
+            endInfo["- Winner Kills"] = (+sorted_ships_KDratio[0].custom.Kills || 0).toString();
+            endInfo["- Winner Deaths"] = (+sorted_ships_KDratio[0].custom.Deaths || 0).toString();
+            endInfo["Your Kills"] = (+ship.custom.Kills || 0).toString();
+            endInfo["Your Deaths"] = (+ship.custom.Deaths || 0).toString();
+            ship.gameover(endInfo);
+            ship.custom.kicked = true;
+        }
+    }
+}
 this.event = function (event, game) {
     var ship = event.ship;
+
     switch (event.name) {
         case "ui_component_clicked":
             var component = event.id;
-            if (Subspace_allow) {
-                if (component == "using_subspace") {
-                    ship.custom.cheater = false;
-                }
-            } else {
-                if (component == "using_subspace") {
-                    ship.set({ idle: true });
-                    ship.custom.cheater = true; // Mark player as cheater
-                    ship.gameover({ "You have been caught": "Gay using Subspace" });
-                    game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
-                    break;
-                }
-            }
+            if (component === "using_subspace") ACWsFunctions.Subspace_checker();
             if (ship.custom.init === true) {
                 if (component == "Spectate") ACWsFunctions.spectate(ship);
                 else if (component == "Speedsters") ACWsFunctions.speedsters(ship);
-                else if (component == "Admin ship") {
-                    ship.set({ type: admin_ships[admin_ships.indexOf(ship.type) + 1] || admin_ships[0], crystals: 696969, stats: 99999999 });
-                }
             }
             break;
         case "ship_spawned":
-            ACWsFunctions.updateScoreboard(game);
-            let xx = [10, 20, 0, -20, -10];
-            let yy = [10, 20, 0, -20, -10];
+            let xx = (Math.random() - .5) * ship.game.options.map_size * 10;
+            let yy = (Math.random() - .5) * ship.game.options.map_size * 10;
             ship.set({
-                x: xx[~~(Math.random() * xx.length)],
-                y: yy[~~(Math.random() * yy.length)],
+                x: xx,
+                y: yy,
                 invulnerable: 300,
                 shield: 999,
                 crystals: 720,
@@ -395,7 +647,6 @@ this.event = function (event, game) {
             });
             break;
         case "ship_destroyed":
-            ACWsFunctions.updateScoreboard(game);
             if (ship) ship.custom.Deaths++;
             if (event.killer) event.killer.custom.Kills++;
             break;
@@ -406,7 +657,7 @@ setspectate = id => {
     return game.ships[id].name + " was in enable for Spectate\n";
 };
 removespectate = id => {
-    game.ships[id].setUIComponent(ACWsUIs.removeSpectate);
+    game.ships[id].setUIComponent({ id: "Spectate", visible: false });
     return "Spectate was disabled for " + game.ships[id].name + "\n";
 };
 game.modding.tick = function (t) {
@@ -433,7 +684,8 @@ playerList = function () {
     }
 };
 function onStart() {
-    game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n");
+    game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n                   [[b;#000000;]G][[;#FFFFFF;]i][[b;#000000;]t][[;#FFFFFF;]h][[b;#000000;]u][[;#FFFFFF;]b]");
+    game.modding.terminal.echo(" https://github.com/Modraxis/Overpowered-Speedster ");
 }
 kill = function (shipIndex) {
     if (game.ships[shipIndex]) {
@@ -445,12 +697,8 @@ kill = function (shipIndex) {
 };
 game.modding.terminal.echo = (function (echo) {
     return function (text) {
-        if (!isNaN(text)) {
-            echo.call(this, `[[i;#3AA1EA;]${text}]`);
-        } else if (/^https?:\/\//i.test(text)) {
-            echo.call(this, text);
-        } else {
-            echo.call(this, `[[b;crimson;]${text}]`);
-        }
+        if (!isNaN(text)) echo.call(this, `[[i;#3AA1EA;]${text}]`);
+        else if (/^https?:\/\//i.test(text)) echo.call(this, text);
+        else echo.call(this, `[[b;crimson;]${text}]`);
     };
 })(game.modding.terminal.echo);
