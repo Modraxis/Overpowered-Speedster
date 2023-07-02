@@ -1,25 +1,32 @@
 Mod_Name =
     "Overpowered Speedster";
 
-
-
-
-
-
-
-
-
+/*
+CREDITS ______________________________________________________________________________________________________________________
+---|  MAIN CREATOR / OWNER:                                                                                                    |
+--------|  Basit#8259               - DEVELOPMENT & SHIP BUILDING                                                              |
+--------|  🅰TTACK 🅰S TEAM#1132   - CONTRIBUTION OF IDEAS AND ADVERTISING                                                    |
+--------|  HΞLPΞЯ#3194              - CONTRIBUTION OF IDEAS AND ADVERTISING                                                    |
+--------|                                                                                                                      |
+---|  IMPORTANT NOTE:                                                                                                          |
+--------|    If the mod fails to run and displays a "mod stopped after initializing" error, please try the following steps:    |
+--------|                                                                                                                      |
+--------|    1. Remove the "this.tick" block from the code.                                                                    |
+--------|    2. Restart the mod.                                                                                               |
+--------|                                                                                                                      |
+--------|    If you encounter persistent issues even after attempting the above steps,                                         |
+--------|    it might be due to a network problem.Please ensure your internet connection is stable,                            |
+--------|    or it could be an issue with the servers on the other end.                                                        |
+--------|______________________________________________________________________________________________________________________|
+*/
 
 const GAME_OPTIONS = {
     Timer_of_match: 30,     // Put Time in minutes
-    Subspace_allow: false,  //Put true if you want subspace users else put false
+    Subspace_allow: false,  //Put true if you want subspace users else put false but before start
     required_players: 2,    //Required players before start
     waiting_time: 10,       //Waiting time before start
     NumberTeams: 0          //Number teams in game
 };
-
-
-
 
 
 
@@ -206,7 +213,7 @@ const ACWsFunctions = {
         }
 
     }, spectate: function (ship) {
-        if (!ship.custom.Spectate) {
+        if (!ship.custom.Spectatee) {
             ship.setUIComponent({
                 id: "Speedsters",
                 visible: false
@@ -219,11 +226,11 @@ const ACWsFunctions = {
             } else if (ship.custom.Spectatetype) {
                 ship.set({ type: 192, crystals: 0, collider: false, vx: 0, vy: 0 });
                 ship.custom.Spectatetype = false;
-                ship.custom.Spectate = true;
+                ship.custom.Spectatee = true;
             }
         } else {
             ship.setUIComponent(ACWsUIs.Speedsters);
-            ship.custom.Spectate = false;
+            ship.custom.Spectatee = false;
             ship.custom.Spectatetype = false;
             ship.custom.Spectatecolor = false;
             ship.set({
@@ -238,7 +245,7 @@ const ACWsFunctions = {
             });
         }
     }, speedsters: function (ship) {
-        if (ship.custom.Spectate === false) {
+        if (!ship.custom.Spectatee) {
             ship.set({
                 type: OPspeedsters[OPspeedsters.indexOf(ship.type) + 1] || OPspeedsters[0],
                 generator: 0,
@@ -351,7 +358,7 @@ const ACWsFunctions = {
             ...options,
             position: {
                 ...options.position,
-                z: -3
+                z: -10
             },
             scale: {
                 ...options.scale,
@@ -438,7 +445,7 @@ const mainTicks = function (game) {
                 ship.setUIComponent(ACWsUIs.Speedsters);
                 ship.custom.Instructor = true;
                 if (ship.custom.Instructor) {
-                    ship_instructor(ship, `Hi!\nWelcome to \n ACW's Overpowered Speedster mod\nGET SOME TIPS!\nPress [V] to change your look of Speedster \n Important note:\nAll the Speedster are equal But there looks are changed\nEnjoy the mod`, "Zoltar", 2, 10);
+                    ship_instructor(ship, `Hi!\nWelcome to \n ACW's Overpowered Speedster mod\nGET SOME TIPS!\nPress [V] to change your look of Speedster \n Important note:\nAll the Speedster are equal But there looks are changed\nEnjoy the mod`, "Zoltar", 2, 9);
                     ship.custom.Instructor = false;
                     timeout = 720;
                     setTimeout(() => {
@@ -449,7 +456,7 @@ const mainTicks = function (game) {
         }
     }
 };
-const initialization = function (game, dontChangeTick = false) {
+const installing = function (game, dontChangeTick = false) {
     var MapName = {
         id: "MapName",
         emissive: "https://raw.githubusercontent.com/Modraxis/background/main/overpowered%20speedster.png",
@@ -469,7 +476,7 @@ const initialization = function (game, dontChangeTick = false) {
 if (ACWtag != RESOURCES.ACWaccess) {
     this.tick = null;
     game.modding.terminal.echo(`[[;#FF7733;]${RESOURCES.message}][[b;#33B4FF;]${RESOURCES.ACWaccess}]`);
-} else this.tick = initialization;
+} else this.tick = installing;
 
 
 const waiting = function (game) {
@@ -623,7 +630,6 @@ const gameoverFunction = function (game) {
 }
 this.event = function (event, game) {
     var ship = event.ship;
-
     switch (event.name) {
         case "ui_component_clicked":
             var component = event.id;
@@ -662,9 +668,7 @@ removespectate = id => {
 };
 game.modding.tick = function (t) {
     this.game.tick(t);
-    if (this.context.tick !== null) {
-        this.context.tick(this.game);
-    }
+    if (this.context.tick !== null) this.context.tick(this.game);
 };
 game.modding.commands.kick = function (req) {
     let args = req.replace(/^\s+/, "").replace(/\s+/, " ").split(" "), id = Number(args[1] || "NaN");
@@ -685,15 +689,13 @@ playerList = function () {
 };
 function onStart() {
     game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n                   [[b;#000000;]G][[;#FFFFFF;]i][[b;#000000;]t][[;#FFFFFF;]h][[b;#000000;]u][[;#FFFFFF;]b]");
-    game.modding.terminal.echo(" https://github.com/Modraxis/Overpowered-Speedster ");
+    game.modding.terminal.echo("https://github.com/Modraxis/Overpowered-Speedster");
 }
 kill = function (shipIndex) {
     if (game.ships[shipIndex]) {
         game.ships[shipIndex].set({ kill: true });
         return `Id ([[bg;#FFDD00;]${shipIndex}]) destroyed!`;
-    } else {
-        return `Invalid ship index: [[bg;#FFDD00;]${shipIndex}]`;
-    }
+    } else return `Invalid ship index: [[bg;#FFDD00;]${shipIndex}]`;
 };
 game.modding.terminal.echo = (function (echo) {
     return function (text) {
