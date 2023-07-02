@@ -1,23 +1,22 @@
 Mod_Name =
     "Overpowered Speedster";
-
 /*
-CREDITS _______________________________________________________________________________________________________________________
----|  MAIN CREATOR / OWNER:                                                                                                    |
---------|  Basit#8259               - DEVELOPMENT & SHIP BUILDING                                                              |
---------|  🅰TTACK 🅰S TEAM#1132   - CONTRIBUTION OF IDEAS AND ADVERTISING                                                    |
---------|  HΞLPΞЯ#3194              - CONTRIBUTION OF IDEAS AND ADVERTISING                                                    |
---------|                                                                                                                      |
----|  IMPORTANT NOTE:                                                                                                          |
---------|    If the mod fails to run and displays a "mod stopped after initializing" error, please try the following steps:    |
---------|                                                                                                                      |
---------|    1. Remove the "this.tick" block from the code.                                                                    |
---------|    2. Restart the mod.                                                                                               |
---------|                                                                                                                      |
---------|    If you encounter persistent issues even after attempting the above steps,                                         |
---------|    it might be due to a network problem.Please ensure your internet connection is stable,                            |
---------|    or it could be an issue with the servers on the other end.                                                        |
---------|______________________________________________________________________________________________________________________|
+CREDITS  ______________________________________________________________________________________________________________________
+-=-=-=-=|  MAIN CREATOR / OWNER:                                                                                               |
+-=-=-=-=|    Basit#8259               - DEVELOPMENT & SHIP BUILDING                                                            |
+-=-=-=-=|    🅰TTACK 🅰S TEAM#1132   - CONTRIBUTION OF IDEAS AND ADVERTISING                                                  |
+-=-=-=-=|    HΞLPΞЯ#3194              - CONTRIBUTION OF IDEAS AND ADVERTISING                                                  |
+-=-=-=-=|                                                                                                                      |
+-=-=-=-=|  IMPORTANT NOTE:                                                                                                     |
+-=-=-=-=|    If the mod fails to run and displays a "mod stopped after initializing" error, please try the following steps:    |
+-=-=-=-=|                                                                                                                      |
+-=-=-=-=|    1. Remove the "this.tick" block from the code.                                                                    |
+-=-=-=-=|    2. Restart the mod.                                                                                               |
+-=-=-=-=|                                                                                                                      |
+-=-=-=-=|    If you encounter persistent issues even after attempting the above steps,                                         |
+-=-=-=-=|    it might be due to a network problem.Please ensure your internet connection is stable,                            |
+-=-=-=-=|    or it could be an issue with the servers on the other end.                                                        |
+-=-=-=-=|______________________________________________________________________________________________________________________|
 */
 
 const GAME_OPTIONS = {
@@ -100,7 +99,6 @@ const vocabulary = [
     { text: "Bruh", icon: "\u{1F480}", key: "I" },
     { text: "Lag", icon: "\u0069", key: "J" }
 ];
-
 const map =
     "                                                            \n" +
     "          5                                      5          \n" +
@@ -184,10 +182,8 @@ this.options = {
     starting_ship_maxed: true,
     asteroids_strength: 100000,
 };
-
 const OPspeedsters = [601, 602, 603, 604, 605];
 const Spectators = [191, 192];
-
 const RESOURCES = {
    /*obj*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ACWaccess: "Λᴄᗯ | ☆", message: `Tag error: ACW tag has been changed put ACW tag again\n    Here is the ACW tag: `,
     planeOBJ: "https://starblast.data.neuronality.com/mods/objects/plane.obj"
@@ -204,14 +200,12 @@ const ACWsFunctions = {
                 game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
                 game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n  [[bg;#ff0000;]${ship.name} has not been kicked because you allow Subspace.]`);
             }
-        }
-        else {
+        } else {
             ship.custom.cheater = true;
             ship.gameover({ "You have been caught": "using Subspace" });
             game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
             game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n  [[bg;#ff0000;]${ship.name} has been kicked because you do not allow Subspace.]`);
         }
-
     }, spectate: function (ship) {
         if (!ship.custom.Spectatee) {
             ship.setUIComponent({
@@ -346,7 +340,7 @@ const ACWsFunctions = {
     }, timeExceeded: function (timestamp, timerr) {
         return game.step > (timerr + timestamp);
     }, getObjectID: function (id) {
-        return "__ABILITY_MANAGER_" + String(id) + "__"
+        return "_MANAGER_" + String(id) + "__"
     }, setObject: function (specs) {
         specs = { ...specs };
         specs.id = this.getObjectID(specs.id);
@@ -373,7 +367,6 @@ const ACWsFunctions = {
         return JSON.parse(JSON.stringify(obj));
     }
 };
-
 const ACWsUIs = {
     Spectate: {
         id: "Spectate",
@@ -678,7 +671,7 @@ game.modding.commands.kick = function (req) {
 playerList = function () {
     game.modding.terminal.echo("[[b;#FFEE00;]Playerlist =]");
     game.modding.terminal.echo("                  [[b;#00B9FF;]Total Players :][[ib;#FFEE00;]  " + game.ships.length + " ]");
-    game.modding.terminal.echo("                  [[b;#00B9FF;]Total Aliens  :][[ib;#FFEE00;]  " + game.aliens.length + " ]");
+    //    game.modding.terminal.echo("                  [[b;#00B9FF;]Total Aliens  :][[ib;#FFEE00;]  " + game.aliens.length + " ]");
     game.modding.terminal.echo(" ");
     game.modding.terminal.echo("[[b;#FF0000;]|][[b;#00B9FF;]  PLAYER IDs  [[b;#FF0000;]|]         PLAYER NAMEs]");
     game.modding.terminal.echo("[[b;#FF0000;]|              |]");
@@ -688,7 +681,7 @@ playerList = function () {
     }
 };
 function onStart() {
-    game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n                   [[b;#000000;]G][[;#FFFFFF;]i][[b;#000000;]t][[;#FFFFFF;]h][[b;#000000;]u][[;#FFFFFF;]b]");
+    game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n   [[ub;gray;]Github link]");
     game.modding.terminal.echo("https://github.com/Modraxis/Overpowered-Speedster");
 }
 kill = function (shipIndex) {
