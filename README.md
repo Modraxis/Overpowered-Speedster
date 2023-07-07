@@ -28,9 +28,9 @@
 
 # This is Official mod of ACW
 
-  <div align="center">
+  <div align="left">
   <br />
   <p>
-    <img src="https://raw.githubusercontent.com/Modraxis/background/main/ACW%20logo.png" width="1000" alt="ACW logo" /></a>
+    <img src="https://raw.githubusercontent.com/Modraxis/background/main/ACW%20logo.png" width="450" alt="ACW logo" /></a>
   </p>
 </div>
