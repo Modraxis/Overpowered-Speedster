@@ -7,33 +7,27 @@ CREDITS  _______________________________________________________________________
 -=-=-=-=|    🅰TTACK 🅰S TEAM#1132   - CONTRIBUTION OF IDEAS AND ADVERTISING                                                  |
 -=-=-=-=|    HΞLPΞЯ#3194              - CONTRIBUTION OF IDEAS AND ADVERTISING                                                  |
 -=-=-=-=|                                                                                                                      |
+-=-=-=-=|  Github link:                                                                                                        |
+-=-=-=-=|    https://github.com/Modraxis/Overpowered-Speedster                                                                 |
+-=-=-=-=|                                                                                                                      |
 -=-=-=-=|  IMPORTANT NOTE:                                                                                                     |
 -=-=-=-=|    If the mod fails to run and displays a "mod stopped after initializing" error, please try the following steps:    |
 -=-=-=-=|                                                                                                                      |
--=-=-=-=|    1. Remove the "this.tick" block from the code.                                                                    |
--=-=-=-=|    2. Restart the mod.                                                                                               |
+-=-=-=-=|    1. Restart the mod.                                                                                               |
+-=-=-=-=|    2. Reload your Tab.                                                                                               |
 -=-=-=-=|                                                                                                                      |
 -=-=-=-=|    If you encounter persistent issues even after attempting the above steps,                                         |
 -=-=-=-=|    it might be due to a network problem.Please ensure your internet connection is stable,                            |
 -=-=-=-=|    or it could be an issue with the servers on the other end.                                                        |
 -=-=-=-=|______________________________________________________________________________________________________________________|
 */
-
 const GAME_OPTIONS = {
-  Timer_of_match: 30,     // Put Time in minutes
+  Timer_of_match: 30,  // Put Time in minutes
   Subspace_allow: false,  //Put true if you want subspace users else put false but before start
-  required_players: 2,    //Required players before start
-  waiting_time: 10,       //Waiting time before start
-  NumberTeams: 0          //Number teams in game
+  required_players: 2,  //Required players before start
+  waiting_time: 10,  //Waiting time before start
+  NumberTeams: 0,  //Number teams in game if you want but before start the mod
 };
-
-
-
-
-
-
-
-
 
 
 
@@ -56,113 +50,94 @@ ship.push(Black_Speedster_603);
 ship.push(Your_Speedster_604);
 ship.push(A_Speedster_605);
 
-var ship_instructor = function (ship, message, character = "Lucina", delay = 0, hide_after = 0) {
-  if (!ship || !message || !message.length) {
-    return;
-  }
-  let instructor_func;
-  if (hide_after) {
-    instructor_func = function () {
-      ship.showInstructor();
-      ship.instructorSays(message, character);
-      setTimeout(() => { ship.hideInstructor() }, hide_after * 650);
-    };
-  } else {
-    instructor_func = function () {
-      ship.showInstructor();
-      ship.instructorSays(message, character);
-    };
-  }
-  setTimeout(instructor_func, delay * 650);
-};
 const vocabulary = [
   { text: "You", icon: "\u004e", key: "O" },
   { text: "Me", icon: "\u004f", key: "E" },
   { text: "Wait", icon: "\u0048", key: "T" },
   { text: "Yes", icon: "\u004c", key: "Y" },
-
   { text: "No", icon: "\u004d", key: "N" },
   { text: "Hello", icon: "\u0045", key: "H" },
   { text: "Sorry", icon: "\u00a1", key: "S" },
   { text: "Thanks", icon: "\u0041", key: "X" },
-
   { text: "Attack", icon: "\u0049", key: "A" },
   { text: "Follow Me", icon: "\u0050", key: "F" },
   { text: "Good Game", icon: "\u00a3", key: "G" },
-
   { text: "Gems", icon: "\u0044", key: "M" },
   { text: "Kill", icon: "\u005b", key: "K" },
   { text: "Hmm", icon: "\u004b", key: "Q" },
   { text: "No Prb", icon: "\u0047", key: "P" },
-
   { text: "Discord", icon: "\u007b", key: "D" },
   { text: "Bruh", icon: "\u{1F480}", key: "I" },
   { text: "Lag", icon: "\u0069", key: "J" }
 ];
+
 const map =
-  "                                                            \n" +
-  "          5                                      5          \n" +
-  "                                                            \n" +
-  "                    5     5      5     5                    \n" +
-  "                                                            \n" +
-  " 5                                                        5 \n" +
-  "                         5        5                         \n" +
-  "      5      5                                5      5      \n" +
+  "                 9                                          \n" +
+  "                              9            9        9       \n" +
   "                                                            \n" +
   "                                                            \n" +
-  "                       5            5                       \n" +
-  "     5                                                5     \n" +
-  "   5                                                    5   \n" +
+  "       9                                                    \n" +
+  "                                 9                          \n" +
+  "  9                9                                        \n" +
+  "            9                                               \n" +
+  "                            9          9         9          \n" +
+  "                                                        9   \n" +
+  "                    9                                       \n" +
   "                                                            \n" +
-  "                                                            \n" +
-  "            5       5                  5       5            \n" +
-  "                           5    5                           \n" +
-  "                                                            \n" +
-  "                                                            \n" +
-  " 5                                                        5 \n" +
-  "                       5            5                       \n" +
-  "           5                                    5           \n" +
-  "                                                            \n" +
-  "                5                          5                \n" +
-  "                                                            \n" +
-  "                                                            \n" +
-  "    5             5                      5             5    \n" +
-  "           5                                    5           \n" +
+  "  9                                                         \n" +
+  "        9                                                   \n" +
+  "                9                    9       9              \n" +
   "                                                            \n" +
   "                                                            \n" +
   "                                                            \n" +
+  "                            9          9                    \n" +
+  "                  9                                         \n" +
+  "           9                                           9    \n" +
   "                                                            \n" +
-  "           5                                    5           \n" +
-  "    5             5                      5             5    \n" +
+  "     9                     9                                \n" +
+  "                                             9              \n" +
+  "                    9                                       \n" +
+  "        9                                                   \n" +
   "                                                            \n" +
-  "                                                            \n" +
-  "                5                          5                \n" +
-  "                                                            \n" +
-  "           5                                    5           \n" +
-  "                       5            5                       \n" +
-  " 5                                                        5 \n" +
-  "                                                            \n" +
-  "                                                            \n" +
-  "                           5    5                           \n" +
-  "            5       5                  5       5            \n" +
+  "               9                                            \n" +
+  "                                     9                      \n" +
+  "  9                                                         \n" +
   "                                                            \n" +
   "                                                            \n" +
-  "   5                                                    5   \n" +
-  "     5                                                5     \n" +
-  "                       5            5                       \n" +
+  "                                                            \n" +
+  "                      9                      9      9       \n" +
+  "            9                                               \n" +
+  "                                  9                         \n" +
   "                                                            \n" +
   "                                                            \n" +
-  "      5      5                                5      5      \n" +
-  "                         5        5                         \n" +
-  " 5                                                        5 \n" +
+  "     9                                    9                 \n" +
+  "                   9     9                         9        \n" +
   "                                                            \n" +
-  "                    5     5      5     5                    \n" +
   "                                                            \n" +
-  "          5                                      5          \n" +
+  "                                                            \n" +
+  "            9     9            9      9                     \n" +
+  "                                                            \n" +
+  "                                              9             \n" +
+  "     9                                                      \n" +
+  "                                                            \n" +
+  "                           9                9        9      \n" +
+  "                                                            \n" +
+  "            9                                               \n" +
+  "                    9             9                         \n" +
+  "                                                            \n" +
+  "                                                            \n" +
+  "                                                   9        \n" +
+  "                                           9        9       \n" +
+  "   9         9          9                                   \n" +
+  "                                                            \n" +
+  "                                                            \n" +
   "                                                            ";
 
 onStart();
 const tracks = ["civilisation.mp3", "procedurality.mp3", "argon.mp3", "crystals.mp3", "red_mist.mp3", "warp_drive.mp3"];
+const OPspeedsters = [601, 602, 603, 604, 605];
+const Spectators = [191, 192];
+const ACWtag = "Λᴄᗯ | ☆";
 this.options = {
   map_name: Mod_Name,
   root_mode: "",
@@ -182,16 +157,12 @@ this.options = {
   starting_ship_maxed: true,
   asteroids_strength: 100000,
 };
-const OPspeedsters = [601, 602, 603, 604, 605];
-const Spectators = [191, 192];
 const RESOURCES = {
    /*obj*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ACWaccess: "Λᴄᗯ | ☆", message: `Tag error: ACW tag has been changed put ACW tag again\n    Here is the ACW tag: `,
   planeOBJ: "https://starblast.data.neuronality.com/mods/objects/plane.obj"
 };
-const ACWtag = "Λᴄᗯ | ☆";
-const DEBUG = true;
 const ACWsFunctions = {
-  Subspace_Detector: function () {
+  Subspace_Detector: function (ship) {
     if (GAME_OPTIONS.Subspace_allow) {
       if (!ship.custom.cheater) {
         ship.custom.cheater = true;
@@ -199,10 +170,9 @@ const ACWsFunctions = {
         game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n  [[bg;#ff0000;]${ship.name} has not been kicked because you allow Subspace.]`);
       }
     } else {
-      ship.custom.cheater = true;
       ship.gameover({ "You have been caught": "using Subspace" });
       game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
-      game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n  [[bg;#ff0000;]${ship.name} has been kicked because you do not allow Subspace.]`);
+      game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n[[bg;#ff0000;]${ship.name} has been kicked because you do not allow Subspace.]`);
     }
   }, spectate: function (ship) {
     if (!ship.custom.Spectatee) {
@@ -247,10 +217,10 @@ const ACWsFunctions = {
         }
       } else {
         if (ship.id === sorted_ships_KDratio[0].id && ship.custom.Kills >= 1) {
-          ship.custom.MainColor = "#C0B1FF";
-          ship.custom.FillColor = "rgba(192, 177, 255, 0.20)";
+          ship.custom.MainColor = "#00FFFF";
+          ship.custom.FillColor = "rgba(0, 255, 255, 0.20)";
         } else if (ship.custom.Spectatecolor) {
-          ship.custom.MainColor = "rgba(255, 255, 255, 0.20)";
+          ship.custom.MainColor = "rgba(255, 255, 255, 0.50)";
           ship.custom.FillColor = "rgba(255, 255, 255, 0.20)";
         } else {
           ship.custom.MainColor = "#FFFFFF";
@@ -267,7 +237,6 @@ const ACWsFunctions = {
       visible: true,
       components: [
         { type: "box", position: [0, 0, 100, 100], fill: "#000000" },
-        { type: "box", position: [0, 0, 100, 100 / 11], fill: "rgba(255, 255, 255, 0.20)" },
 
         { type: "text", position: [2, offsetY, 100, textHeight], color: "#ffffff", value: "Players:", align: "left" },
         { type: "text", position: [-8.5, offsetY + 0.5, 100, textHeight], color: "#FF0000", value: "K", align: "right" },
@@ -302,7 +271,7 @@ const ACWsFunctions = {
       Scoreboard.components = components;
     }
   }, toTimer: function () {
-    let timerr = GAME_OPTIONS.Timer_of_match * 60
+    let timerr = GAME_OPTIONS.Timer_of_match * 60;
     let seconds = ACWsFunctions.timeLeft(game.custom.startedStep + timerr * 60);
     let minutes = Math.trunc(seconds / 60);
     seconds -= minutes * 60;
@@ -315,10 +284,10 @@ const ACWsFunctions = {
   }, sendWaitingText: function (ship) {
     ship.setUIComponent({
       id: "waiting_text",
-      position: [40, 20, 20, 10],
+      position: [40, 20, 20, 20],
       components: [
         { type: "text", position: [0, 0, 100, 50], value: "Waiting for more players...", color: "#cde" },
-        { type: "text", position: [0, 50, 100, 50], value: String(game.custom.waiting_text).toString() + "s wait", color: "#cde" }
+        { type: "text", position: [0, 30, 100, 50], value: String(game.custom.waiting_text).toString(), color: "#cde" }
       ]
     });
   }, timeExceeded: function (timestamp, timerr) {
@@ -352,46 +321,53 @@ const ACWsUIs = {
     position: [70, 0.5, 9, 4],
     clickable: true,
     visible: true,
-    shortcut: "3",
+    shortcut: "4",
     components: [
-      { type: "box", position: [0, 0, 100, 100], fill: "rgba(40, 40, 215, 0.40)", stroke: "#2828D7", width: 5 },
-      { type: "text", position: [0, 20, 100, 60], value: "Spectate [3]", color: "#ffffff" }
+      { type: "box", position: [0, 0, 100, 100], fill: "#052A29", stroke: "#00FFFF", width: 5 },
+      { type: "text", position: [0, 20, 100, 60], value: "Spectate (4)", color: "#00FFFF" }
     ]
   }, Speedsters: {
     id: "Speedsters",
-    position: [5, 6.3, 10, 6],
+    position: [22, 0.5, 11, 4],
     clickable: true,
     visible: true,
-    shortcut: "V",
+    shortcut: "2",
     components: [
-      { type: "text", position: [-0.25, 0, 100, 100], value: "Speedsters [V]", color: "#cde" }
+      { type: "box", position: [0, 0, 100, 100], fill: "#2A2905", stroke: "#FFFB00", width: 5 },
+      { type: "text", position: [0, 20, 100, 60], value: "Speedsters (2)", color: "rgba(255, 251, 0, 0.80)" },
     ]
-  }, score_block: {
-    id: "score_block",
-    position: [4, 2, 12, 6],
-    visible: true,
-    components: [
-      { type: "box", position: [-0.25, -0.25, 100, 100], fill: "#0A2947", stroke: "#0083FF", width: 4 },
-      { type: "text", position: [6, -8, 85, 75], value: "Overpowered", color: "#0083FF" },
-      { type: "text", position: [15, 35, 70, 60], value: " Speedster ", color: "#0083FF" }
-    ]
-  }, buy_lives_blocker: {
-    id: "buy_lives_blocker",
-    position: [65, 0, 10, 10],
-    clickable: true,
-    visible: true,
-    shortcut: String.fromCharCode(187),
-    components: []
-  }, steam_exit_block: {
-    id: "steam_exit_block",
-    position: [0, 95, 20, 5],
-    clickable: true,
+  },
+  Blockers: function (ship) {
+    ship.setUIComponent({
+      id: "score_block",
+      position: [4, 2, 12, 6],
+      visible: true,
+      components: [
+        { type: "box", position: [-0.25, -0.25, 100, 100], fill: "#000000", stroke: "#cde", width: 4 },
+        { type: "text", position: [6, -8, 85, 75], value: "Overpowered", color: "#cde" },
+        { type: "text", position: [15, 35, 70, 60], value: " Speedster ", color: "#cde" }
+      ]
+    }), ship.setUIComponent({
+      id: "buy_lives_blocker",
+      position: [65, 0, 10, 10],
+      clickable: true,
+      visible: true,
+      shortcut: String.fromCharCode(187),
+      components: []
+    }), ship.setUIComponent({
+      id: "steam_exit_block",
+      position: [0, 95, 20, 5],
+      clickable: true,
+    })
+  }, hide_notification: {
+    id: "notificationUI",
+    visible: true
   }, scoreboard: {
     id: "scoreboard",
     visible: true,
     components: [
       { type: "box", position: [0, 0, 100, 100], fill: "#000000" },
-      { type: "text", position: [5, 5, 90, 100 / 10], value: "Waiting for more players...", color: "#cde" },
+      { type: "text", position: [5, 5, 90, 10], value: "Waiting for more players...", color: "#cde" },
     ]
   }
 };
@@ -408,22 +384,7 @@ const mainTicks = function (game) {
         ship.custom.join = true;
         ship.custom.Deaths = 0;
         ship.custom.Kills = 0;
-        ship.custom.init = true;
-        ship.custom.cheater = false;
-        ship.setUIComponent(ACWsUIs.scoreboard);
-        ship.setUIComponent(ACWsUIs.buy_lives_blocker);
-        ship.setUIComponent(ACWsUIs.steam_exit_block);
-        ship.setUIComponent(ACWsUIs.score_block);
-        ship.setUIComponent(ACWsUIs.Speedsters);
-        ship.custom.Instructor = true;
-        if (ship.custom.Instructor) {
-          ship_instructor(ship, `Hi!\nWelcome to \n ACW's Overpowered Speedster mod\nGET SOME TIPS!\nPress [V] to change your look of Speedster \n Important note:\nAll the Speedster are equal But there looks are changed\nEnjoy the mod`, "Zoltar", 2, 9);
-          ship.custom.Instructor = false;
-          timeout = 720;
-          setTimeout(() => {
-            ship.hideInstructor();
-          }, timeout);
-        }
+        ACWsUIs.Blockers(ship);
       }
     }
   }
@@ -450,7 +411,6 @@ if (ACWtag != RESOURCES.ACWaccess) {
   game.modding.terminal.echo(`[[;#FF7733;]${RESOURCES.message}][[b;#33B4FF;]${RESOURCES.ACWaccess}]`);
 } else this.tick = installing;
 
-
 const waiting = function (game) {
   mainTicks(game);
   let players = game.ships.filter(ship => ship && ship.id != null);
@@ -459,17 +419,14 @@ const waiting = function (game) {
     if (game.custom.waiting_time == null || isNaN(game.custom.waiting_time)) game.custom.waiting_time = game.step + GAME_OPTIONS.waiting_time * 60;
     if (game.step > game.custom.waiting_time) {
       players.forEach(ship => {
-        ship.custom.join = false;
-        ship.setUIComponent(ACWsUIs.buy_lives_blocker);
-        ship.setUIComponent(ACWsUIs.steam_exit_block);
-        ship.setUIComponent(ACWsUIs.score_block);
+        ACWsUIs.Blockers(ship);
         ship.setUIComponent({
           id: "waiting_text",
           visible: false
         });
         let xx = (Math.random() - .5) * ship.game.options.map_size * 10;
         let yy = (Math.random() - .5) * ship.game.options.map_size * 10;
-        ship.set({ idle: false, collider: true, invulnerable: 300, shield: 999, crystals: 720, stats: 66666666, x: xx, y: yy });
+        ship.set({ idle: false, collider: true, invulnerable: 300, shield: 999, crystals: 720, x: xx, y: yy });
       });
       if (game.custom.startedStep == null) game.custom.startedStep = game.step + 1;
       return this.tick = main_function;
@@ -478,11 +435,8 @@ const waiting = function (game) {
     game.custom.waiting_time = null;
     text = `${players.length}/${GAME_OPTIONS.required_players} players required`;
     players.forEach(ship => {
-      ship.custom.join = true;
+      ACWsUIs.Blockers(ship);
       ship.setUIComponent(ACWsUIs.scoreboard);
-      ship.setUIComponent(ACWsUIs.buy_lives_blocker);
-      ship.setUIComponent(ACWsUIs.steam_exit_block);
-      ship.setUIComponent(ACWsUIs.score_block);
       ship.setUIComponent({
         id: "Speedsters",
         visible: false
@@ -492,10 +446,7 @@ const waiting = function (game) {
   } if (text != game.custom.waiting_text) {
     game.custom.waiting_text = text;
     players.forEach(ship => {
-      ship.custom.join = true;
-      ship.setUIComponent(ACWsUIs.buy_lives_blocker);
-      ship.setUIComponent(ACWsUIs.steam_exit_block);
-      ship.setUIComponent(ACWsUIs.score_block);
+      ACWsUIs.Blockers(ship);
       ship.setUIComponent(ACWsUIs.scoreboard);
       ship.setUIComponent({
         id: "Speedsters",
@@ -511,8 +462,28 @@ const main_function = function (game) {
   if ((game.step - game.custom.startedStep) % 60 === 0) {
     for (let ship of game.ships) {
       ship.set({ score: 0 });
-      if (ship.custom.join) {
-        ACWsFunctions.updateScoreboard(game);
+      ACWsFunctions.updateScoreboard(game);
+      if (!ship.custom.gameStart) {
+        ship.setUIComponent(ACWsUIs.Speedsters);
+        ship.setUIComponent({
+          id: "notificationUI",
+          position: [25, 10, 50, 30],
+          visible: true,
+          components: [
+            { type: "text", position: [0, -10, 100, 35], value: "Hi! Welcome to ACW's Overpowered Speedster mod", color: "#cde", align: "center" },
+            { type: "text", position: [0, 15, 100, 12], value: "GET SOME TIPS!", color: "#cde", align: "center" },
+            { type: "text", position: [0, 22, 100, 20], value: "Press [V] to change your look of Speedster", color: "#cde", align: "center" },
+            { type: "text", position: [0, 38, 100, 12], value: "Important note!", color: "#cde", align: "center" },
+            { type: "box", position: [0, 52, 100, 1], fill: "#cde", stroke: "#cde", width: 5, align: "center" },
+            { type: "text", position: [0, 30, 100, 60], value: "All the Speedster are equal But there looks are changed", color: "#cde", align: "center" },
+            { type: "text", position: [0, 65, 100, 20], value: "Enjoy the mod", color: "#cde", align: "center" }
+          ]
+        });
+        hide_notificationUI = 5000;
+        setTimeout(() => {
+          ship.setUIComponent(ACWsUIs.hide_notification);
+        }, hide_notificationUI);
+        ship.custom.gameStart = true;
       }
       ship.setUIComponent({
         id: "timer",
@@ -525,9 +496,9 @@ const main_function = function (game) {
     let timerr = GAME_OPTIONS.Timer_of_match * 60
     game.custom.timeout = ACWsFunctions.timeExceeded(game.custom.startedStep, timerr * 60);
     if (game.custom.timeout) this.tick = endFunction;
-
   } if (game.step % 500 === 0) {
     playerList();
+    game.modding.terminal.echo("\n[[ug;#00B9FF;]Type [[ug;#FF0000;]commands] to see all the available commands and there usage\n\n]");
   }
 }
 
@@ -536,12 +507,13 @@ const endFunction = function (game) {
   let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
   for (let ship of game.ships) {
     ship.setUIComponent({
-      id: "endgame_notification",
-      position: [25, 10, 50, 10],
+      id: "notificationUI",
+      position: [25, 10, 50, 30],
       visible: true,
       components: [
-        { type: "text", position: [0, 0, 100, 50], value: "Times up!", color: "#cde", align: "center" },
-        { type: "text", position: [0, 50, 100, 50], value: `${sorted_ships_KDratio[0].name} is the Winner`, color: "#cde", align: "center" },
+        { type: "text", position: [0, 5, 100, 20], value: game.custom.timeout ? "Times up!" : "Game has been end by Hoster", color: game.custom.timeout ? "#cde" : "#FF0000", align: "center" },
+        { type: "text", position: [0, 25, 100, 20], value: game.custom.timeout ? `${sorted_ships_KDratio[0].name} is the winner` : "No winner", color: game.custom.timeout ? "#cde" : "#FF0000", align: "center" },
+        { type: "text", position: [0, 45, 100, 25], value: `Thanks for Playing GGs!`, color: "#cde", align: "center" }
       ]
     });
     ship.setUIComponent({
@@ -560,13 +532,23 @@ const endFunction = function (game) {
     ship.set({ collider: false });
     ship.custom.endFunctionTick = game.step;
   }
-  game.custom.endFunctionInfo = {
-    "Winner": " ",
-    "- Winner Kills": 0,
-    "- Winner Deaths": 0,
-    " ": " ",
-    "Your kills": 0,
-    "Your deaths": 0
+  if (!game.custom.timeout) {
+    game.custom.endFunctionInfo = {
+      "No Winner": " ",
+      "Game has been end by Hoster": " ",
+      " ": " ",
+      "Your kills": 0,
+      "Your deaths": 0
+    }
+  } else {
+    game.custom.endFunctionInfo = {
+      "Winner": " ",
+      "- Winner Kills": 0,
+      "- Winner Deaths": 0,
+      " ": " ",
+      "Your kills": 0,
+      "Your deaths": 0
+    }
   };
   this.tick = gameoverFunction;
 }
@@ -574,16 +556,13 @@ const gameoverFunction = function (game) {
   mainTicks(game);
   for (let ship of game.ships) {
     if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 4 * 60)) {
-      ship.setUIComponent({
-        id: "endgame_notification",
-        visible: false
-      });
+      ship.setUIComponent(ACWsUIs.hide_notification);
     } if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 5 * 60)) {
       let endInfo = ACWsFunctions.clone(game.custom.endFunctionInfo);
       let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
-      endInfo["Winner"] = sorted_ships_KDratio[0].name;
-      endInfo["- Winner Kills"] = (+sorted_ships_KDratio[0].custom.Kills || 0).toString();
-      endInfo["- Winner Deaths"] = (+sorted_ships_KDratio[0].custom.Deaths || 0).toString();
+      endInfo[game.custom.timeout ? "Winner" : "No Winner"] = game.custom.timeout ? sorted_ships_KDratio[0].name : " ";
+      endInfo[game.custom.timeout ? "- Winner Kills" : "Game has been end by Hoster"] = game.custom.timeout ? (+sorted_ships_KDratio[0].custom.Kills || 0).toString() : " ";
+      endInfo[game.custom.timeout ? "- Winner Deaths" : " "] = game.custom.timeout ? (+sorted_ships_KDratio[0].custom.Deaths || 0).toString() : " ";
       endInfo["Your Kills"] = (+ship.custom.Kills || 0).toString();
       endInfo["Your Deaths"] = (+ship.custom.Deaths || 0).toString();
       ship.gameover(endInfo);
@@ -596,8 +575,8 @@ this.event = function (event, game) {
   switch (event.name) {
     case "ui_component_clicked":
       var component = event.id;
-      if (component === "using_subspace") ACWsFunctions.Subspace_Detector();
-      if (ship.custom.init === true) {
+      if (component === "using_subspace") ACWsFunctions.Subspace_Detector(ship);
+      if (ship.custom.join === true) {
         if (component == "Spectate") ACWsFunctions.spectate(ship);
         else if (component == "Speedsters") ACWsFunctions.speedsters(ship);
       }
@@ -613,22 +592,10 @@ this.event = function (event, game) {
       break;
   }
 };
-setspectate = id => {
-  game.ships[id].setUIComponent(ACWsUIs.Spectate);
-  return game.ships[id].name + " was in enable for Spectate\n";
-};
-removespectate = id => {
-  game.ships[id].setUIComponent({ id: "Spectate", visible: false });
-  return "Spectate was disabled for " + game.ships[id].name + "\n";
-};
-game.modding.tick = function (t) {
-  this.game.tick(t);
-  if (this.context.tick !== null) this.context.tick(this.game);
-};
+
 playerList = function () {
   game.modding.terminal.echo("[[b;#FFEE00;]Playerlist =]");
   game.modding.terminal.echo("                  [[b;#00B9FF;]Total Players :][[ib;#FFEE00;]  " + game.ships.length + " ]");
-  //    game.modding.terminal.echo("                  [[b;#00B9FF;]Total Aliens  :][[ib;#FFEE00;]  " + game.aliens.length + " ]");
   game.modding.terminal.echo(" ");
   game.modding.terminal.echo("[[b;#FF0000;]|][[b;#00B9FF;]  PLAYER IDs  [[b;#FF0000;]|]         PLAYER NAMEs]");
   game.modding.terminal.echo("[[b;#FF0000;]|              |]");
@@ -639,34 +606,103 @@ playerList = function () {
 };
 function onStart() {
   game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n   [[g;#FFFFFF;]Github link]");
-  game.modding.terminal.echo("https://github.com/Modraxis/Overpowered-Speedster \n");
+  game.modding.terminal.echo("https://github.com/Modraxis/Overpowered-Speedster");
+  game.modding.terminal.echo("\n[[ug;#00B9FF;]Type [[ug;#FF0000;]commands] to see all the available commands and there usage\n\n]");
 }
-game.modding.commands.kick = function (req, reason = "No reason provided") {
-  let args = req.trim().split(/\s+/);
-  let id = Number(args[1]);
-  if (isNaN(id) || id < 0 || id >= game.ships.length) {
-    game.modding.terminal.echo(`[[g;#FF0000;]Invalid ship ID:] [[g;#FFDD00;]${id}]`);
-    return;
-  }
-  game.ships[id].gameover({
-    "You have been kicked": `${reason}`,
-  });
-  game.modding.terminal.echo(`[[g;#FFDD00;]${game.ships[id].name}] has been kicked!\n    Reason: ${reason}`);
-};
-game.modding.commands.kill = function (req) {
-  let args = req.trim().split(/\s+/);
-  let id = Number(args[1]);
-  if (isNaN(id) || id < 0 || id >= game.ships.length) {
-    game.modding.terminal.echo(`[[g;#FF0000;]Invalid ship ID:] [[g;#FFDD00;]${id}]`);
-    return;
-  }
-  game.ships[id].set({ kill: true });
-  game.modding.terminal.echo(`[[g;#FFDD00;]${game.ships[id].name}] has been killed!`);
-};
 game.modding.terminal.echo = (function (echo) {
   return function (text) {
-    if (!isNaN(text)) echo.call(this, `[[i;#9900FF;]${text}]`);
+    if (!isNaN(text)) echo.call(this, `[[b;#00B9FF;]${text}]`);
     else if (/^https?:\/\//i.test(text)) echo.call(this, text);
-    else echo.call(this, `[[b;#9900FF;]${text}]`);
+    else echo.call(this, `[[b;#00B9FF;]${text}]`);
   };
 })(game.modding.terminal.echo);
+game.modding.tick = function (t) {
+  this.game.tick(t);
+  if (this.context.tick !== null) this.context.tick(this.game);
+};
+function makeCommand(commandName, commandFunction, defaultReason = "No reason provided") {
+  const echo = game.modding.terminal.echo;
+  const gameCommands = game.modding.commands;
+  gameCommands[commandName] = function (req) {
+    const args = req.trim().split(/\s+/);
+    if (commandName !== "stop" && commandName !== "sunall" && commandName !== "commands" && commandName !== "playerlist") {
+      const id = Number(args[1]);
+      if (isNaN(id) || id < 0 || id >= game.ships.length) {
+        echo(`[[g;#FF0000;]Error: Invalid ship ID] [[g;#FFDD00;]${id}]`);
+        return;
+      }
+      const player = game.ships[id];
+      const playerName = `[[g;#FFDD00;]${player.name}]`;
+      const reason = args.slice(2).join(" ") || defaultReason;
+      const { successMessage, reasonMessage } = commandFunction(player, reason);
+      echo(`[[b;#00FF00;]Success:] [[g;#00FF00;]${successMessage.replace("%n", playerName)}]`);
+      if (reasonMessage) {
+        echo(`[[b;#00BFFF;]Reason:] [[g;#00BFFF;]${reasonMessage}]`);
+      }
+    } else {
+      const { successMessage, reasonMessage } = commandFunction();
+      echo(`[[b;#00FF00;]Success:] [[g;#00FF00;]${successMessage}]`);
+      if (reasonMessage) {
+        echo(`[[b;#00BFFF;]Reason:] [[g;#00BFFF;]${reasonMessage}]`);
+      }
+    }
+  };
+}
+makeCommand("commands", () => {
+  const successMessage = "\n [[g;#00FF00;]Here are the available commands]:\n" +
+    "  [[g;#FFDD00;]commands]:\n   [[g;#00FFFF;]Show descriptions and usage of all available commands.]\n" +
+    "  [[g;#FFDD00;]kick ]<[[g;#FF0000;]id]> <[[g;#FF0000;]reason]> :\n   [[g;#00FFFF;]Kick a player with the specified ID and reason.]\n" +
+    "  [[g;#FFDD00;]kill ]<[[g;#FF0000;]id]> :\n   [[g;#00FFFF;]Kill a player with the specified ID.]\n" +
+    "  [[g;#FFDD00;]sunall]:\n   [[g;#00FFFF;]Teleport all players to the sun.]\n" +
+    "  [[g;#FFDD00;]heal ]<[[g;#FF0000;]id]> :\n   [[g;#00FFFF;]Heal a player with the specified ID.]\n" +
+    "  [[g;#FFDD00;]setspectate ]<[[g;#FF0000;]id]> :\n   [[g;#00FFFF;]Set spectate to a player with the specified ID.]\n" +
+    "  [[g;#FFDD00;]removespectate ]<[[g;#FF0000;]id]> :\n   [[g;#00FFFF;]Remove spectate to a player with the specified ID.]\n" +
+    "  [[g;#FFDD00;]playerlist]:\n   [[g;#00FFFF;]To see the list of players.]\n" +
+    "  [[g;#FFDD00;]stop]:\n   [[g;#00FFFF;]Stop or End the game.]\n";
+  return { successMessage };
+});
+makeCommand("kick", (player, reason) => {
+  player.gameover({
+    "You have been kicked": reason,
+  });
+  const successMessage = `%n has been kicked!`;
+  const reasonMessage = reason;
+  return { successMessage, reasonMessage };
+});
+makeCommand("kill", (player) => {
+  player.set({ kill: true });
+  const successMessage = `%n has been killed!`;
+  return { successMessage };
+});
+makeCommand("sunall", () => {
+  for (const player of game.ships) {
+    player.set({ x: 0, y: 0 });
+  }
+  const successMessage = "All players are teleported to the sun!";
+  return { successMessage };
+});
+makeCommand("heal", (player) => {
+  player.set({ shield: 1000, crystals: 720 });
+  const successMessage = `%n has been heal!`;
+  return { successMessage };
+});
+makeCommand("setspectate", (player) => {
+  player.setUIComponent(ACWsUIs.Spectate);
+  const successMessage = `Spectate has been Enabled for %n!`;
+  return { successMessage };
+});
+makeCommand("removespectate", (player) => {
+  player.setUIComponent({ id: "Spectate", visible: false });
+  const successMessage = `Spectate has been disabled for %n!`;
+  return { successMessage };
+});
+makeCommand("playerlist", () => {
+  const successMessage = `Here is the list of players!`;
+  playerList();
+  return { successMessage };
+});
+makeCommand("stop", () => {
+  this.tick = endFunction;
+  const successMessage = `Game has been end!\n[[g;#FF0000;]If mod is not stop then you need to reload the this Tab]`;
+  return { successMessage };
+});
