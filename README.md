@@ -1,5 +1,5 @@
 ![image](https://raw.githubusercontent.com/Modraxis/Overpowered-Speedster-mod/main/SB%20overpowered%20speedster.png)
-# Overpowered Speedster
+# [Overpowered Speedster](https://github.com/Modraxis/Overpowered-Speedster)
 
 # CREDITS:
 
