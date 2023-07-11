@@ -18,6 +18,7 @@ This is the official mod for **ACW** (Asian Cosmic Warriors).
 If you encounter any issues with the mod, such as a "Mod stopped after initializing" error, please follow these steps to troubleshoot:
 1. Restart the mod.
 2. Reload your browser tab.
+3. Restart the browser.
 
 If you continue to experience persistent issues, it could be due to a network problem. Please ensure that your internet connection is stable. Alternatively, the issue might be related to the servers on the other end.
 
