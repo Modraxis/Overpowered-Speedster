@@ -23,7 +23,7 @@ If you encounter any issues with the mod, such as a "Mod stopped after initializ
 If you continue to experience persistent issues, it could be due to a network problem. Please ensure that your internet connection is stable. Alternatively, the issue might be related to the servers on the other end.
 
 ## Getting Started
-To install and use the Overpowered Speedster mod, follow these steps:
+To use the Overpowered Speedster mod, follow these steps:
 1. Copy the code or download the mod files from [here](https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.JS).
 2. Load the mod in StarBlast.io by visiting the [modding page](https://starblast.io/modding.html).
 3. Enjoy the enhanced features and capabilities of the Overpowered Speedster mod!
