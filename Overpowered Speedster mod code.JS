@@ -24,8 +24,8 @@ CREDITS  _______________________________________________________________________
 const GAME_OPTIONS = {
   Timer_of_match: 30,  // Put Time in minutes
   Subspace_allow: false,  //Put true if you want subspace users else put false but before start
-  required_players: 2,  //Required players before start
-  waiting_time: 10,  //Waiting time before start
+  required_players: 2,  //Required players before start the game
+  waiting_time: 10,  //Waiting time before start the game
   NumberTeams: 0,  //Number teams in game if you want but before start the mod
 };
 
