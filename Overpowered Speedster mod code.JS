@@ -22,10 +22,10 @@ CREDITS  _______________________________________________________________________
 -=-=-=-=|______________________________________________________________________________________________________________________|
 */
 const GAME_OPTIONS = {
-  Timer_of_match: 30,  // Put Time in minutes
+  Timer_of_match: 60,  // Put Time in minutes
   Subspace_allow: false,  //Put true if you want subspace users else put false but before start
   required_players: 2,  //Required players before start the game
-  waiting_time: 10,  //Waiting time before start the game
+  waiting_time: 30,  //Waiting time before start the game
   NumberTeams: 0,  //Number teams in game if you want but before start the mod
 };
 
@@ -271,16 +271,20 @@ const ACWsFunctions = {
       Scoreboard.components = components;
     }
   }, toTimer: function () {
-    let timerr = GAME_OPTIONS.Timer_of_match * 60;
+    const timerr = GAME_OPTIONS.Timer_of_match * 60;
     let seconds = ACWsFunctions.timeLeft(game.custom.startedStep + timerr * 60);
     let minutes = Math.trunc(seconds / 60);
-    seconds -= minutes * 60;
-    if (minutes < 60) return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    seconds %= 60;
+    if (minutes < 60) {
+      return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    }
     let hours = Math.trunc(minutes / 60);
-    minutes -= hours * 60;
+    minutes %= 60;
     return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   }, timeLeft: function (timestamp) {
     return Math.max(Math.ceil((timestamp - game.step) / 60), 0);
+  }, timeExceeded: function (timestamp, timerr) {
+    return game.step > (timerr + timestamp);
   }, sendWaitingText: function (ship) {
     ship.setUIComponent({
       id: "waiting_text",
@@ -290,29 +294,21 @@ const ACWsFunctions = {
         { type: "text", position: [0, 30, 100, 50], value: String(game.custom.waiting_text).toString(), color: "#cde" }
       ]
     });
-  }, timeExceeded: function (timestamp, timerr) {
-    return game.step > (timerr + timestamp);
-  }, getObjectID: function (id) {
-    return "_MANAGER_" + String(id) + "__"
-  }, setObject: function (specs) {
-    specs = { ...specs };
-    specs.id = this.getObjectID(specs.id);
-    if (specs.type != null) specs.type.id = this.getObjectID(specs.type.id);
-    game.setObject(specs);
-  }, setPlaneOBJ: function (options) {
-    options = options || {};
-    this.setObject({
-      ...options,
-      position: {
-        ...options.position, z: -10
-      }, scale: {
-        ...options.scale, z: 0
-      }, type: {
-        ...(options.type || {}), obj: RESOURCES.planeOBJ
-      }
-    })
   }, clone: function (obj) {
     return JSON.parse(JSON.stringify(obj));
+  }, setObjectWithID: function (specs) {
+    const getObjectID = (id) => "_MANAGER_" + String(id) + "__";
+
+    const processedSpecs = {
+      ...specs,
+      id: getObjectID(specs.id),
+      type: specs.type ? { ...specs.type, id: getObjectID(specs.type.id) } : undefined,
+      position: { ...(specs.position || {}), z: -10 },
+      scale: { ...(specs.scale || {}), z: 0 },
+      type: { ...(specs.type || {}), obj: RESOURCES.planeOBJ }
+    };
+
+    game.setObject(processedSpecs);
   }
 };
 const ACWsUIs = {
@@ -336,29 +332,35 @@ const ACWsUIs = {
       { type: "box", position: [0, 0, 100, 100], fill: "#2A2905", stroke: "#FFFB00", width: 5 },
       { type: "text", position: [0, 20, 100, 60], value: "Speedsters (2)", color: "rgba(255, 251, 0, 0.80)" },
     ]
-  },
-  Blockers: function (ship) {
-    ship.setUIComponent({
-      id: "score_block",
-      position: [4, 2, 12, 6],
-      visible: true,
-      components: [
-        { type: "box", position: [-0.25, -0.25, 100, 100], fill: "#000000", stroke: "#cde", width: 4 },
-        { type: "text", position: [6, -8, 85, 75], value: "Overpowered", color: "#cde" },
-        { type: "text", position: [15, 35, 70, 60], value: " Speedster ", color: "#cde" }
-      ]
-    }), ship.setUIComponent({
-      id: "buy_lives_blocker",
-      position: [65, 0, 10, 10],
-      clickable: true,
-      visible: true,
-      shortcut: String.fromCharCode(187),
-      components: []
-    }), ship.setUIComponent({
-      id: "steam_exit_block",
-      position: [0, 95, 20, 5],
-      clickable: true,
-    })
+  }, Blockers: function (ship) {
+    const blockers = [
+      {
+        id: "score_block",
+        position: [4, 2, 12, 6],
+        visible: true,
+        components: [
+          { type: "box", position: [-0.25, -0.25, 100, 100], fill: "#000000", stroke: "#cde", width: 4 },
+          { type: "text", position: [6, -8, 85, 75], value: "Overpowered", color: "#cde" },
+          { type: "text", position: [15, 35, 70, 60], value: " Speedster ", color: "#cde" }
+        ]
+      },
+      {
+        id: "buy_lives_blocker",
+        position: [65, 0, 10, 10],
+        clickable: true,
+        visible: true,
+        shortcut: String.fromCharCode(187),
+        components: []
+      },
+      {
+        id: "steam_exit_block",
+        position: [0, 95, 20, 5],
+        clickable: true,
+      }
+    ];
+    blockers.forEach(component => {
+      ship.setUIComponent(component);
+    });
   }, hide_notification: {
     id: "notificationUI",
     visible: true
@@ -394,7 +396,7 @@ const installing = function (game, dontChangeTick = false) {
     id: "MapName",
     emissive: "https://raw.githubusercontent.com/Modraxis/background/main/overpowered%20speedster.png",
   };
-  ACWsFunctions.setPlaneOBJ({
+  ACWsFunctions.setObjectWithID({
     id: "MapName",
     type: MapName,
     position: { x: 0, y: 10 },
