@@ -22,7 +22,7 @@ CREDITS  _______________________________________________________________________
 -=-=-=-=|______________________________________________________________________________________________________________________|
 */
 const GAME_OPTIONS = {
-  Timer_of_match: 60,  // Put Time in minutes
+  Timer_of_match: 30,  // Put Time in minutes
   Subspace_allow: false,  //Put true if you want subspace users else put false but before start
   required_players: 2,  //Required players before start the game
   waiting_time: 30,  //Waiting time before start the game
@@ -174,7 +174,8 @@ const ACWsFunctions = {
       game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace hack alert:\n[[bg;#ff0000;]${ship.name} has been caught using Subspace.]`);
       game.modding.terminal.echo(`[[bg;#AA00FF;]Subspace Action:\n[[bg;#ff0000;]${ship.name} has been kicked because you do not allow Subspace.]`);
     }
-  }, spectate: function (ship) {
+  },
+  spectate: function (ship) {
     if (!ship.custom.Spectatee) {
       ship.setUIComponent({
         id: "Speedsters",
@@ -197,11 +198,13 @@ const ACWsFunctions = {
       ship.custom.Spectatecolor = false;
       ship.set({ type: ship.custom.last_ship, shield: 500, crystals: 720, generator: 0, collider: true, stats: 88888888, vx: 0, vy: 0 });
     }
-  }, speedsters: function (ship) {
+  },
+  speedsters: function (ship) {
     if (!ship.custom.Spectatee) {
       ship.set({ type: OPspeedsters[OPspeedsters.indexOf(ship.type) + 1] || OPspeedsters[0], generator: 0, collider: true, stats: 88888888 });
     }
-  }, updateScoreboard: function (game) {
+  },
+  updateScoreboard: function (game) {
     let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
     for (let ship of game.ships) {
       if (ship.name.startsWith(ACWtag)) {
@@ -270,7 +273,8 @@ const ACWsFunctions = {
       ship.setUIComponent(Scoreboard);
       Scoreboard.components = components;
     }
-  }, toTimer: function () {
+  },
+  toTimer: function () {
     const timerr = GAME_OPTIONS.Timer_of_match * 60;
     let seconds = ACWsFunctions.timeLeft(game.custom.startedStep + timerr * 60);
     let minutes = Math.trunc(seconds / 60);
@@ -281,11 +285,14 @@ const ACWsFunctions = {
     let hours = Math.trunc(minutes / 60);
     minutes %= 60;
     return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-  }, timeLeft: function (timestamp) {
+  },
+  timeLeft: function (timestamp) {
     return Math.max(Math.ceil((timestamp - game.step) / 60), 0);
-  }, timeExceeded: function (timestamp, timerr) {
+  },
+  timeExceeded: function (timestamp, timerr) {
     return game.step > (timerr + timestamp);
-  }, sendWaitingText: function (ship) {
+  },
+  sendWaitingText: function (ship) {
     ship.setUIComponent({
       id: "waiting_text",
       position: [40, 20, 20, 20],
@@ -294,9 +301,11 @@ const ACWsFunctions = {
         { type: "text", position: [0, 30, 100, 50], value: String(game.custom.waiting_text).toString(), color: "#cde" }
       ]
     });
-  }, clone: function (obj) {
+  },
+  clone: function (obj) {
     return JSON.parse(JSON.stringify(obj));
-  }, setObjectWithID: function (specs) {
+  },
+  setObjectWithID: function (specs) {
     const getObjectID = (id) => "_MANAGER_" + String(id) + "__";
 
     const processedSpecs = {
@@ -322,7 +331,8 @@ const ACWsUIs = {
       { type: "box", position: [0, 0, 100, 100], fill: "#052A29", stroke: "#00FFFF", width: 5 },
       { type: "text", position: [0, 20, 100, 60], value: "Spectate (4)", color: "#00FFFF" }
     ]
-  }, Speedsters: {
+  },
+  Speedsters: {
     id: "Speedsters",
     position: [22, 0.5, 11, 4],
     clickable: true,
@@ -332,7 +342,8 @@ const ACWsUIs = {
       { type: "box", position: [0, 0, 100, 100], fill: "#2A2905", stroke: "#FFFB00", width: 5 },
       { type: "text", position: [0, 20, 100, 60], value: "Speedsters (2)", color: "rgba(255, 251, 0, 0.80)" },
     ]
-  }, Blockers: function (ship) {
+  },
+  Blockers: function (ship) {
     const blockers = [
       {
         id: "score_block",
@@ -361,10 +372,12 @@ const ACWsUIs = {
     blockers.forEach(component => {
       ship.setUIComponent(component);
     });
-  }, hide_notification: {
+  },
+  hide_notification: {
     id: "notificationUI",
     visible: true
-  }, scoreboard: {
+  },
+  scoreboard: {
     id: "scoreboard",
     visible: true,
     components: [
@@ -403,6 +416,7 @@ const installing = function (game, dontChangeTick = false) {
     scale: { x: 50, y: 30, z: 40 },
     rotation: { x: Math.PI, y: 0, z: 0 }
   });
+
   if (!dontChangeTick) {
     this.tick = waiting;
     this.tick(game);
@@ -419,7 +433,9 @@ const waiting = function (game) {
   let text = "";
   if (players.length >= GAME_OPTIONS.required_players) {
     if (game.custom.waiting_time == null || isNaN(game.custom.waiting_time)) game.custom.waiting_time = game.step + GAME_OPTIONS.waiting_time * 60;
+
     if (game.step > game.custom.waiting_time) {
+
       players.forEach(ship => {
         ACWsUIs.Blockers(ship);
         ship.setUIComponent({
@@ -430,6 +446,7 @@ const waiting = function (game) {
         let yy = (Math.random() - .5) * ship.game.options.map_size * 10;
         ship.set({ idle: false, collider: true, invulnerable: 300, shield: 999, crystals: 720, x: xx, y: yy });
       });
+
       if (game.custom.startedStep == null) game.custom.startedStep = game.step + 1;
       return this.tick = main_function;
     } else text = ACWsFunctions.timeLeft(game.custom.waiting_time);
@@ -445,7 +462,8 @@ const waiting = function (game) {
       });
       ship.set({ idle: true, collider: false, x: 0, y: 10, vx: 0, vy: 0 });
     });
-  } if (text != game.custom.waiting_text) {
+  }
+  if (text != game.custom.waiting_text) {
     game.custom.waiting_text = text;
     players.forEach(ship => {
       ACWsUIs.Blockers(ship);
@@ -463,8 +481,9 @@ const main_function = function (game) {
   mainTicks(game);
   if ((game.step - game.custom.startedStep) % 60 === 0) {
     for (let ship of game.ships) {
-      ship.set({ score: 0 });
+
       ACWsFunctions.updateScoreboard(game);
+
       if (!ship.custom.gameStart) {
         ship.setUIComponent(ACWsUIs.Speedsters);
         ship.setUIComponent({
@@ -559,7 +578,8 @@ const gameoverFunction = function (game) {
   for (let ship of game.ships) {
     if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 4 * 60)) {
       ship.setUIComponent(ACWsUIs.hide_notification);
-    } if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 5 * 60)) {
+    }
+    if (!ship.custom.kicked && (ship.custom.endFunctionTick == null || game.step - ship.custom.endFunctionTick > 5 * 60)) {
       let endInfo = ACWsFunctions.clone(game.custom.endFunctionInfo);
       let sorted_ships_KDratio = [...game.ships].sort((a, b) => (b.custom.Kills - b.custom.Deaths) - (a.custom.Kills - a.custom.Deaths)).slice(0, 10);
       endInfo[game.custom.timeout ? "Winner" : "No Winner"] = game.custom.timeout ? sorted_ships_KDratio[0].name : " ";
@@ -572,6 +592,7 @@ const gameoverFunction = function (game) {
     }
   }
 }
+
 this.event = function (event, game) {
   var ship = event.ship;
   switch (event.name) {
@@ -622,6 +643,7 @@ game.modding.tick = function (t) {
   this.game.tick(t);
   if (this.context.tick !== null) this.context.tick(this.game);
 };
+
 function makeCommand(commandName, commandFunction, defaultReason = "No reason provided") {
   const echo = game.modding.terminal.echo;
   const gameCommands = game.modding.commands;
