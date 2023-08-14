@@ -14,6 +14,9 @@ This is the official mod for **ACW** (Asian Cosmic Warriors).
 - **HΞLPΞЯ#3194**: Contribution of Ideas and Advertising
 - **🅰TTACK 🅰S TEAM#1132**: Contribution of Ideas and Advertising
 
+## Warning
+Dont change any thing when mod is started
+
 ## Important Note
 If you encounter any issues with the mod, such as a "Mod stopped after initializing" error, please follow these steps to troubleshoot:
 1. Restart the mod.
