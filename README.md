@@ -7,8 +7,6 @@
   </p>
 </div>
 
-This is the official mod for **ACW** (Asian Cosmic Warriors).
-
 ## Mod Creators
 - **Basit#8259**: Development & Ship Building
 - **HΞLPΞЯ#3194**: Contribution of Ideas and Advertising
