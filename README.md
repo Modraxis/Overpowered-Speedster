@@ -2,7 +2,7 @@
 <div align="center">
   <p>
     <a href="https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.JS">
-      <img src="https://raw.githubusercontent.com/Modraxis/Overpowered-Speedster-mod/main/SB%20overpowered%20speedster.png" width="1000" alt="Overpowered Speedster" />
+      <img src="https://github.com/Modraxis/Overpowered-Speedster/assets/117416934/ed295f76-3752-4126-a8fe-b53de94509c5" width="1000" alt="Overpowered Speedster" />
     </a>
   </p>
 </div>
