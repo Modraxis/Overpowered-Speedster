@@ -8,9 +8,9 @@
 </div>
 
 ## Mod Creators
-- **Basit#8259**: Development & Ship Building
-- **HΞLPΞЯ#3194**: Contribution of Ideas and Advertising
-- **🅰TTACK 🅰S TEAM#1132**: Contribution of Ideas and Advertising
+- **Basit**: Development & Ship Building (Discord:"m.basit")
+- **HΞLPΞЯ**: Contribution of Ideas and Advertising (Discord:".helpers")
+- **🅰TTACK 🅰S TEAM**: Contribution of Ideas and Advertising (Discord:"attackasteam")
 
 ## Warning
 Dont change any thing when mod is started
