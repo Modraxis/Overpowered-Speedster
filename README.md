@@ -34,6 +34,6 @@ ACW is an Asian clan in the game StarBlast.io.
 
 <div align="left">
   <p>
-    <img src="https://raw.githubusercontent.com/Modraxis/background/main/ACW%20logo.png" width="450" alt="ACW logo" />
+    <img style="border-radius: 15px;" src="https://raw.githubusercontent.com/Modraxis/background/main/ACW%20logo.png" width="450" alt="ACW logo" />
   </p>
 </div>
