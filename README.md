@@ -14,8 +14,6 @@
 - **HΞLPΞЯ**: Contribution of Ideas and Advertising (Discord:".helpers")
 - **🅰TTACK 🅰S TEAM**: Contribution of Ideas and Advertising (Discord:"attackasteam")
 
-## Warning
-Dont change any thing when mod is started
 
 ## Important Note
 If you encounter any issues with the mod, such as a "Mod stopped after initializing" error, please follow these steps to troubleshoot:
@@ -30,6 +28,9 @@ To use the Overpowered Speedster mod, follow these steps:
 1. Copy the code or download the mod files from [here](https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.JS).
 2. Load the mod in StarBlast.io by visiting the [modding page](https://starblast.io/modding.html).
 3. Enjoy the enhanced features and capabilities of the Overpowered Speedster mod!
+
+> [!warning]
+> Dont change anything when mod is started
 
 ## About ACW (Asian Cosmic Warriors)
 ACW is an Asian clan in the game StarBlast.io.
