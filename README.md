@@ -3,7 +3,7 @@
 # Overpowered Speedster Mod
 
   <p>
-    <a href="https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.JS">
+    <a href="https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.js">
       <img src="https://github.com/Modraxis/Overpowered-Speedster/assets/117416934/ed295f76-3752-4126-a8fe-b53de94509c5" width="1000" alt="Overpowered Speedster" />
     </a>
   </p>
@@ -25,7 +25,7 @@ If you continue to experience persistent issues, it could be due to a network pr
 
 ## Getting Started
 To use the Overpowered Speedster mod, follow these steps:
-1. Copy the code or download the mod files from [here](https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.JS).
+1. Copy the code or download the mod files from [here](https://github.com/Modraxis/Overpowered-Speedster/blob/main/Overpowered%20Speedster%20mod%20code.js).
 2. Load the mod in StarBlast.io by visiting the [modding page](https://starblast.io/modding.html).
 3. Enjoy the enhanced features and capabilities of the Overpowered Speedster mod!
 
