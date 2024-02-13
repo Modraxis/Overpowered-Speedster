@@ -463,7 +463,7 @@ const main_function = function (game) {
           position: [25, 10, 50, 30],
           visible: true,
           components: [
-            { type: "text", position: [0, -10, 100, 35], value: "Hi! Welcome to ACW's Overpowered Speedster mod", color: "#cdf", align: "center" },
+            { type: "text", position: [0, -10, 100, 35], value: "Hi! Welcome to Overpowered Speedster mod", color: "#cdf", align: "center" },
             { type: "text", position: [0, 15, 100, 12], value: "GET SOME TIPS!", color: "#cdf", align: "center" },
             { type: "text", position: [0, 22, 100, 20], value: "Press (2) to change your look of Speedster", color: "#cdf", align: "center" },
             { type: "text", position: [0, 38, 100, 12], value: "Important note!", color: "#cdf", align: "center" },
