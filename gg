@@ -1,4 +1,72 @@
-
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'j' || event.key === 'J') {
+    if (window.borucu == true) {
+      window.borucu = false;
+      console.log("%c [!] Borucu simulator disabled [!] ", "background: #000; color: #3FB0E4");
+    } else {
+      window.borucu = true;
+      if (Object.values(Object.values(window.module.exports.settings).find(_0x2a5168 => _0x2a5168.mode)).find(_0x2685a1 => _0x2685a1.status).status.shield != 0 && Object.values(Object.values(window.module.exports.settings).find(_0x2414e8 => _0x2414e8.mode)).find(_0x24baf4 => _0x24baf4.status).status.generator != 0) {
+        var _0x4f37d0 = 0;
+        var _0x3d9ff5 = Object.values(Object.values(window.module.exports.settings).find(_0x885429 => _0x885429.mode)).find(_0xc65db6 => _0xc65db6.socket).socket;
+        console.log("%c [!] Borucu simulator enabled [!] ", "background: #000; color: #3FB0E4");
+        function _0x3ae121() {
+          function _0xf2b4e8(_0x52b8e7) {
+            var _0x364e39 = {
+              name: "say",
+              data: _0x52b8e7
+            };
+            _0x3d9ff5.send(JSON.stringify(_0x364e39));
+          }
+          var _0xaa9780 = false;
+          if (_0xaa9780 == false && _0x4f37d0 == 0) {
+              _0x4f37d0 = 1;
+              _0xf2b4e8("JJJJJ");
+              _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 1) {
+            _0xf2b4e8("JJJJJ");
+            _0x4f37d0 = 2;
+            _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 2) {
+            _0xf2b4e8("JJJJJJ");
+            _0x4f37d0 = 3;
+            _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 3) {
+              _0xf2b4e8("JJJJJ");
+              _0x4f37d0 = 4;
+              _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 4) {
+              _0x4f37d0 = 5;
+              _0xf2b4e8("JJJJJ");
+              _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 5) {
+            _0xf2b4e8("JJJJJ");
+            _0x4f37d0 = 6;
+            _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 6) {
+            _0xf2b4e8("JJJJJ");
+            _0x4f37d0 = 7;
+            _0xaa9780 = true;
+          }
+          if (_0xaa9780 == false && _0x4f37d0 == 7) {
+            _0xf2b4e8("JJJJJ");
+            _0x4f37d0 = 0;
+            _0xaa9780 = true;
+          }
+          if (window.borucu == true) {
+            setTimeout(_0x3ae121, 800);
+          }
+        }
+        _0x3ae121();
+      }
+    }
+  }
+});
 <!DOCTYPE html>
 <html lang="en">
     <head>
