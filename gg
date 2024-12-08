@@ -37480,8 +37480,8 @@
                         case "MR":
                             this.icon = "https://raw.githubusercontent.com/Modraxis/Clan-War/refs/heads/main/FGGG.png";
                             break;
-                       case "discord":
-                            this.icon = "https://starblast.io/ecp/discord.png";
+                       case "Frozan":
+                            this.icon = "https://raw.githubusercontent.com/Modraxis/images/refs/heads/main/48c883696c05961d07b669e3f04ec5c5.webp";
                             break;
                         case "twitch":
                             this.icon = "https://starblast.io/ecp/twitch.png";
@@ -37869,7 +37869,7 @@
                             sdf: "Soloist Defence Force",
                             paw: "Paw",
                             gamepedia: "Gamepedia",
-                            discord: "Discord",
+                            Frozan: "THE GREAT",
                             MR: "Midnight Revenants",      
                             medic: "Medic",
                             blank: "Blank",
