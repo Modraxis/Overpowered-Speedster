@@ -1,4 +1,7 @@
-document.addEventListener('keydown', function (event) {
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  document.addEventListener('keydown', function (event) {
   if (event.key === 'j' || event.key === 'J') {
     if (window.borucu == true) {
       window.borucu = false;
@@ -67,6 +70,7 @@ document.addEventListener('keydown', function (event) {
     }
   }
 });
+        <style>
 <!DOCTYPE html>
 <html lang="en">
     <head>
