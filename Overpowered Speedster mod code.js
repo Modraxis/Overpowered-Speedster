@@ -591,7 +591,7 @@ playerList = function () {
   }
 };
 function onStart() {
-  game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater :]  [[g;Red;]Basit#8259]\n\n   [[g;#FFFFFF;]Github link]");
+  game.modding.terminal.echo("\n\n    [[ubg;#00B9FF;]ACW's ][[ubg;#F9D800;]" + Mod_Name + "]\n\n     [[b;#FFEE00;]Mod Creater:]  [[g;Red;]Modraxis]\n\n   [[g;#FFFFFF;]Github link]");
   game.modding.terminal.echo("https://github.com/Modraxis/Overpowered-Speedster");
   game.modding.terminal.echo(`\n[[b;#FF0000;]Warning:] [[g;#FF0000;]Dont try to change anything in the code when mod is started]\n${GAME_OPTIONS.Commands_allow ? "[[ug;#00B9FF;]Type [[ug;#FF0000;]commands] to see all the available commands and there usage\n\n]" : "[[g;#FF0000;]Commands are disabled]"}`);
 }
