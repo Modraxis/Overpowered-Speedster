@@ -11,7 +11,7 @@
 
 ## Mod Creators
 - **Basit**: Development & Ship Building (Discord:"m.basit")
-- **HΞLPΞЯ**: Contribution of Ideas and Advertising (Discord:".helpers")
+- **HΞLPΞЯ**: Contribution of Ideas and Advertising (Discord:"frozan_1st")
 - **🅰TTACK 🅰S TEAM**: Contribution of Ideas and Advertising (Discord:"attackasteam")
 
 
