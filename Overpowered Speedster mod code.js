@@ -6,8 +6,8 @@ Version =
 CREDITS  ______________________________________________________________________________________________________________________
 -=-=-=-=|  MAIN CREATOR / OWNER:                                                                                               |
 -=-=-=-=|    Basit               - DEVELOPMENT & SHIP BUILDING  (Discord:"m.basit")                                            |
--=-=-=-=|    HΞLPΞЯ              - CONTRIBUTION OF IDEAS AND ADVERTISING (Discord:".helpers")                                  |
--=-=-=-=|    🅰TTACK 🅰S TEAM   - CONTRIBUTION OF IDEAS AND ADVERTISING  (Discord:"attackasteam")                               |
+-=-=-=-=|    HΞLPΞЯ              - CONTRIBUTION OF IDEAS AND ADVERTISING (Discord:"frozan_1st")                                |
+-=-=-=-=|    🅰TTACK 🅰S TEAM     - CONTRIBUTION OF IDEAS AND ADVERTISING  (Discord:"attackasteam")                             |
 -=-=-=-=|                                                                                                                      |
 -=-=-=-=|  Github link:                                                                                                        |
 -=-=-=-=|    https://github.com/Modraxis/Overpowered-Speedster                                                                 |
